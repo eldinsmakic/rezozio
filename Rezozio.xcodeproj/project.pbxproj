@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		416193F91158E39B18274681 /* Pods_Rezozio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4814EC945AE97886E9D7374 /* Pods_Rezozio.framework */; };
+		791B9248E2DB64F8B135730E /* Pods_Rezozio_RezozioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FD638871FA3DBE9C8A23C2 /* Pods_Rezozio_RezozioUITests.framework */; };
 		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
 		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
 		99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */; };
@@ -16,6 +18,8 @@
 		99DBB1D623B27965006404AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1D423B27965006404AC /* LaunchScreen.storyboard */; };
 		99DBB1E123B27965006404AC /* RezozioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1E023B27965006404AC /* RezozioTests.swift */; };
 		99DBB1EC23B27965006404AC /* RezozioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1EB23B27965006404AC /* RezozioUITests.swift */; };
+		99DBB1FC23B2B6DE006404AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1FB23B2B6DD006404AC /* GoogleService-Info.plist */; };
+		C00B54628966A176821B77BD /* Pods_RezozioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0B351458855060BD4230FF /* Pods_RezozioTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18FAAEB2C3F6329BC527F3C1 /* Pods-Rezozio-RezozioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rezozio-RezozioUITests.release.xcconfig"; path = "Target Support Files/Pods-Rezozio-RezozioUITests/Pods-Rezozio-RezozioUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1CE3B580F8173A778D62CD96 /* Pods-Rezozio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rezozio.release.xcconfig"; path = "Target Support Files/Pods-Rezozio/Pods-Rezozio.release.xcconfig"; sourceTree = "<group>"; };
+		4605E9EE1AA51A0DABA9B487 /* Pods-RezozioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezozioTests.release.xcconfig"; path = "Target Support Files/Pods-RezozioTests/Pods-RezozioTests.release.xcconfig"; sourceTree = "<group>"; };
+		4A30BFB22722296DB25CC7E0 /* Pods-Rezozio-RezozioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rezozio-RezozioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rezozio-RezozioUITests/Pods-Rezozio-RezozioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99DBB1C823B27962006404AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,12 @@
 		99DBB1E723B27965006404AC /* RezozioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RezozioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1EB23B27965006404AC /* RezozioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezozioUITests.swift; sourceTree = "<group>"; };
 		99DBB1ED23B27965006404AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99DBB1FB23B2B6DD006404AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A4FD638871FA3DBE9C8A23C2 /* Pods_Rezozio_RezozioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rezozio_RezozioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4298A2AB84E2E2D0C741B4F /* Pods-RezozioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezozioTests.debug.xcconfig"; path = "Target Support Files/Pods-RezozioTests/Pods-RezozioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D4814EC945AE97886E9D7374 /* Pods_Rezozio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rezozio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE0B351458855060BD4230FF /* Pods_RezozioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RezozioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E911CA1E7905C849BDB496A4 /* Pods-Rezozio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rezozio.debug.xcconfig"; path = "Target Support Files/Pods-Rezozio/Pods-Rezozio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416193F91158E39B18274681 /* Pods_Rezozio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C00B54628966A176821B77BD /* Pods_RezozioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +88,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791B9248E2DB64F8B135730E /* Pods_Rezozio_RezozioUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A269FB9ED61CA6948F90640 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E911CA1E7905C849BDB496A4 /* Pods-Rezozio.debug.xcconfig */,
+				1CE3B580F8173A778D62CD96 /* Pods-Rezozio.release.xcconfig */,
+				4A30BFB22722296DB25CC7E0 /* Pods-Rezozio-RezozioUITests.debug.xcconfig */,
+				18FAAEB2C3F6329BC527F3C1 /* Pods-Rezozio-RezozioUITests.release.xcconfig */,
+				C4298A2AB84E2E2D0C741B4F /* Pods-RezozioTests.debug.xcconfig */,
+				4605E9EE1AA51A0DABA9B487 /* Pods-RezozioTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9557F68D01BD2A9A0C1BBDC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4814EC945AE97886E9D7374 /* Pods_Rezozio.framework */,
+				A4FD638871FA3DBE9C8A23C2 /* Pods_Rezozio_RezozioUITests.framework */,
+				DE0B351458855060BD4230FF /* Pods_RezozioTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		99DBB1BA23B27962006404AC = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +126,8 @@
 				99DBB1DF23B27965006404AC /* RezozioTests */,
 				99DBB1EA23B27965006404AC /* RezozioUITests */,
 				99DBB1C423B27962006404AC /* Products */,
+				5A269FB9ED61CA6948F90640 /* Pods */,
+				9557F68D01BD2A9A0C1BBDC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +150,7 @@
 				99DBB1CF23B27965006404AC /* Assets.xcassets */,
 				99DBB1D423B27965006404AC /* LaunchScreen.storyboard */,
 				99DBB1D723B27965006404AC /* Info.plist */,
+				99DBB1FB23B2B6DD006404AC /* GoogleService-Info.plist */,
 				99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */,
 				99DBB1D123B27965006404AC /* Preview Content */,
 			);
@@ -146,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99DBB1F023B27965006404AC /* Build configuration list for PBXNativeTarget "Rezozio" */;
 			buildPhases = (
+				613ED3F0A5C5B8F21B8D4DCA /* [CP] Check Pods Manifest.lock */,
 				99DBB1BF23B27962006404AC /* Sources */,
 				99DBB1C023B27962006404AC /* Frameworks */,
 				99DBB1C123B27962006404AC /* Resources */,
+				F461F4511B565F07AD480562 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99DBB1F323B27965006404AC /* Build configuration list for PBXNativeTarget "RezozioTests" */;
 			buildPhases = (
+				ACB44FD44F0A4DD67E8C0401 /* [CP] Check Pods Manifest.lock */,
 				99DBB1D823B27965006404AC /* Sources */,
 				99DBB1D923B27965006404AC /* Frameworks */,
 				99DBB1DA23B27965006404AC /* Resources */,
@@ -181,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99DBB1F623B27965006404AC /* Build configuration list for PBXNativeTarget "RezozioUITests" */;
 			buildPhases = (
+				C1DB9BDDA21DEE0AEE2CD79B /* [CP] Check Pods Manifest.lock */,
 				99DBB1E323B27965006404AC /* Sources */,
 				99DBB1E423B27965006404AC /* Frameworks */,
 				99DBB1E523B27965006404AC /* Resources */,
+				D92F0C435DDB84186A31B665 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99DBB1D623B27965006404AC /* LaunchScreen.storyboard in Resources */,
+				99DBB1FC23B2B6DE006404AC /* GoogleService-Info.plist in Resources */,
 				99DBB1D323B27965006404AC /* Preview Assets.xcassets in Resources */,
 				99DBB1D023B27965006404AC /* Assets.xcassets in Resources */,
 			);
@@ -264,6 +314,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		613ED3F0A5C5B8F21B8D4DCA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rezozio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACB44FD44F0A4DD67E8C0401 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RezozioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1DB9BDDA21DEE0AEE2CD79B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rezozio-RezozioUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D92F0C435DDB84186A31B665 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rezozio-RezozioUITests/Pods-Rezozio-RezozioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rezozio-RezozioUITests/Pods-Rezozio-RezozioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rezozio-RezozioUITests/Pods-Rezozio-RezozioUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F461F4511B565F07AD480562 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rezozio/Pods-Rezozio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rezozio/Pods-Rezozio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rezozio/Pods-Rezozio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99DBB1BF23B27962006404AC /* Sources */ = {
@@ -436,6 +589,7 @@
 		};
 		99DBB1F123B27965006404AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E911CA1E7905C849BDB496A4 /* Pods-Rezozio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +610,7 @@
 		};
 		99DBB1F223B27965006404AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE3B580F8173A778D62CD96 /* Pods-Rezozio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +631,7 @@
 		};
 		99DBB1F423B27965006404AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4298A2AB84E2E2D0C741B4F /* Pods-RezozioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,6 +654,7 @@
 		};
 		99DBB1F523B27965006404AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4605E9EE1AA51A0DABA9B487 /* Pods-RezozioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +677,7 @@
 		};
 		99DBB1F723B27965006404AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A30BFB22722296DB25CC7E0 /* Pods-Rezozio-RezozioUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +698,7 @@
 		};
 		99DBB1F823B27965006404AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18FAAEB2C3F6329BC527F3C1 /* Pods-Rezozio-RezozioUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
