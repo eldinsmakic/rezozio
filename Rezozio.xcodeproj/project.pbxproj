@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
+		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
+		99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */; };
+		99DBB1CE23B27962006404AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1CD23B27962006404AC /* ContentView.swift */; };
+		99DBB1D023B27965006404AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1CF23B27965006404AC /* Assets.xcassets */; };
+		99DBB1D323B27965006404AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1D223B27965006404AC /* Preview Assets.xcassets */; };
+		99DBB1D623B27965006404AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1D423B27965006404AC /* LaunchScreen.storyboard */; };
+		99DBB1E123B27965006404AC /* RezozioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1E023B27965006404AC /* RezozioTests.swift */; };
+		99DBB1EC23B27965006404AC /* RezozioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1EB23B27965006404AC /* RezozioUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		99DBB1DD23B27965006404AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99DBB1BB23B27962006404AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99DBB1C223B27962006404AC;
+			remoteInfo = Rezozio;
+		};
+		99DBB1E823B27965006404AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99DBB1BB23B27962006404AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99DBB1C223B27962006404AC;
+			remoteInfo = Rezozio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		99DBB1C823B27962006404AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		99DBB1CB23B27962006404AC /* Rezozio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rezozio.xcdatamodel; sourceTree = "<group>"; };
+		99DBB1CD23B27962006404AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		99DBB1CF23B27965006404AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99DBB1D223B27965006404AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		99DBB1D523B27965006404AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		99DBB1D723B27965006404AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99DBB1DC23B27965006404AC /* RezozioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RezozioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99DBB1E023B27965006404AC /* RezozioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezozioTests.swift; sourceTree = "<group>"; };
+		99DBB1E223B27965006404AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99DBB1E723B27965006404AC /* RezozioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RezozioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99DBB1EB23B27965006404AC /* RezozioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezozioUITests.swift; sourceTree = "<group>"; };
+		99DBB1ED23B27965006404AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		99DBB1C023B27962006404AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99DBB1D923B27965006404AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99DBB1E423B27965006404AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		99DBB1BA23B27962006404AC = {
+			isa = PBXGroup;
+			children = (
+				99DBB1C523B27962006404AC /* Rezozio */,
+				99DBB1DF23B27965006404AC /* RezozioTests */,
+				99DBB1EA23B27965006404AC /* RezozioUITests */,
+				99DBB1C423B27962006404AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		99DBB1C423B27962006404AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99DBB1C323B27962006404AC /* Rezozio.app */,
+				99DBB1DC23B27965006404AC /* RezozioTests.xctest */,
+				99DBB1E723B27965006404AC /* RezozioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99DBB1C523B27962006404AC /* Rezozio */ = {
+			isa = PBXGroup;
+			children = (
+				99DBB1C623B27962006404AC /* AppDelegate.swift */,
+				99DBB1C823B27962006404AC /* SceneDelegate.swift */,
+				99DBB1CD23B27962006404AC /* ContentView.swift */,
+				99DBB1CF23B27965006404AC /* Assets.xcassets */,
+				99DBB1D423B27965006404AC /* LaunchScreen.storyboard */,
+				99DBB1D723B27965006404AC /* Info.plist */,
+				99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */,
+				99DBB1D123B27965006404AC /* Preview Content */,
+			);
+			path = Rezozio;
+			sourceTree = "<group>";
+		};
+		99DBB1D123B27965006404AC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				99DBB1D223B27965006404AC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		99DBB1DF23B27965006404AC /* RezozioTests */ = {
+			isa = PBXGroup;
+			children = (
+				99DBB1E023B27965006404AC /* RezozioTests.swift */,
+				99DBB1E223B27965006404AC /* Info.plist */,
+			);
+			path = RezozioTests;
+			sourceTree = "<group>";
+		};
+		99DBB1EA23B27965006404AC /* RezozioUITests */ = {
+			isa = PBXGroup;
+			children = (
+				99DBB1EB23B27965006404AC /* RezozioUITests.swift */,
+				99DBB1ED23B27965006404AC /* Info.plist */,
+			);
+			path = RezozioUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99DBB1C223B27962006404AC /* Rezozio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99DBB1F023B27965006404AC /* Build configuration list for PBXNativeTarget "Rezozio" */;
+			buildPhases = (
+				99DBB1BF23B27962006404AC /* Sources */,
+				99DBB1C023B27962006404AC /* Frameworks */,
+				99DBB1C123B27962006404AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rezozio;
+			productName = Rezozio;
+			productReference = 99DBB1C323B27962006404AC /* Rezozio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		99DBB1DB23B27965006404AC /* RezozioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99DBB1F323B27965006404AC /* Build configuration list for PBXNativeTarget "RezozioTests" */;
+			buildPhases = (
+				99DBB1D823B27965006404AC /* Sources */,
+				99DBB1D923B27965006404AC /* Frameworks */,
+				99DBB1DA23B27965006404AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99DBB1DE23B27965006404AC /* PBXTargetDependency */,
+			);
+			name = RezozioTests;
+			productName = RezozioTests;
+			productReference = 99DBB1DC23B27965006404AC /* RezozioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		99DBB1E623B27965006404AC /* RezozioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99DBB1F623B27965006404AC /* Build configuration list for PBXNativeTarget "RezozioUITests" */;
+			buildPhases = (
+				99DBB1E323B27965006404AC /* Sources */,
+				99DBB1E423B27965006404AC /* Frameworks */,
+				99DBB1E523B27965006404AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99DBB1E923B27965006404AC /* PBXTargetDependency */,
+			);
+			name = RezozioUITests;
+			productName = RezozioUITests;
+			productReference = 99DBB1E723B27965006404AC /* RezozioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		99DBB1BB23B27962006404AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "eldin smakic";
+				TargetAttributes = {
+					99DBB1C223B27962006404AC = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					99DBB1DB23B27965006404AC = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 99DBB1C223B27962006404AC;
+					};
+					99DBB1E623B27965006404AC = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 99DBB1C223B27962006404AC;
+					};
+				};
+			};
+			buildConfigurationList = 99DBB1BE23B27962006404AC /* Build configuration list for PBXProject "Rezozio" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99DBB1BA23B27962006404AC;
+			productRefGroup = 99DBB1C423B27962006404AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99DBB1C223B27962006404AC /* Rezozio */,
+				99DBB1DB23B27965006404AC /* RezozioTests */,
+				99DBB1E623B27965006404AC /* RezozioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99DBB1C123B27962006404AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DBB1D623B27965006404AC /* LaunchScreen.storyboard in Resources */,
+				99DBB1D323B27965006404AC /* Preview Assets.xcassets in Resources */,
+				99DBB1D023B27965006404AC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99DBB1DA23B27965006404AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99DBB1E523B27965006404AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		99DBB1BF23B27962006404AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */,
+				99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */,
+				99DBB1CE23B27962006404AC /* ContentView.swift in Sources */,
+				99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99DBB1D823B27965006404AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DBB1E123B27965006404AC /* RezozioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99DBB1E323B27965006404AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DBB1EC23B27965006404AC /* RezozioUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		99DBB1DE23B27965006404AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99DBB1C223B27962006404AC /* Rezozio */;
+			targetProxy = 99DBB1DD23B27965006404AC /* PBXContainerItemProxy */;
+		};
+		99DBB1E923B27965006404AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99DBB1C223B27962006404AC /* Rezozio */;
+			targetProxy = 99DBB1E823B27965006404AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		99DBB1D423B27965006404AC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99DBB1D523B27965006404AC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		99DBB1EE23B27965006404AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		99DBB1EF23B27965006404AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		99DBB1F123B27965006404AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Rezozio/Preview Content\"";
+				DEVELOPMENT_TEAM = PL39FQM22S;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Rezozio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smakic.eldin.Rezozio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99DBB1F223B27965006404AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Rezozio/Preview Content\"";
+				DEVELOPMENT_TEAM = PL39FQM22S;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Rezozio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smakic.eldin.Rezozio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		99DBB1F423B27965006404AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PL39FQM22S;
+				INFOPLIST_FILE = RezozioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smakic.eldin.RezozioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rezozio.app/Rezozio";
+			};
+			name = Debug;
+		};
+		99DBB1F523B27965006404AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PL39FQM22S;
+				INFOPLIST_FILE = RezozioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smakic.eldin.RezozioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rezozio.app/Rezozio";
+			};
+			name = Release;
+		};
+		99DBB1F723B27965006404AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PL39FQM22S;
+				INFOPLIST_FILE = RezozioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smakic.eldin.RezozioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Rezozio;
+			};
+			name = Debug;
+		};
+		99DBB1F823B27965006404AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PL39FQM22S;
+				INFOPLIST_FILE = RezozioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smakic.eldin.RezozioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Rezozio;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99DBB1BE23B27962006404AC /* Build configuration list for PBXProject "Rezozio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99DBB1EE23B27965006404AC /* Debug */,
+				99DBB1EF23B27965006404AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99DBB1F023B27965006404AC /* Build configuration list for PBXNativeTarget "Rezozio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99DBB1F123B27965006404AC /* Debug */,
+				99DBB1F223B27965006404AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99DBB1F323B27965006404AC /* Build configuration list for PBXNativeTarget "RezozioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99DBB1F423B27965006404AC /* Debug */,
+				99DBB1F523B27965006404AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99DBB1F623B27965006404AC /* Build configuration list for PBXNativeTarget "RezozioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99DBB1F723B27965006404AC /* Debug */,
+				99DBB1F823B27965006404AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				99DBB1CB23B27962006404AC /* Rezozio.xcdatamodel */,
+			);
+			currentVersion = 99DBB1CB23B27962006404AC /* Rezozio.xcdatamodel */;
+			path = Rezozio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 99DBB1BB23B27962006404AC /* Project object */;
+}
