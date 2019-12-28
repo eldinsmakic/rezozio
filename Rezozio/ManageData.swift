@@ -13,7 +13,7 @@ class ManageData {
     private let data: [ThreadModel]
     init()
     {
-    self.data = [ThreadModel(username: "jean", img: #imageLiteral(resourceName: "HomeBar") ),ThreadModel(username: "carlos", img: #imageLiteral(resourceName: "HomeBar") )]
+    self.data = [ThreadModel(username: "jean", userIdent: "@Jean" , tweet: "Right now, lets explain what happens in the code above. We defined a struct Person with two stored properties name and age.", img: #imageLiteral(resourceName: "HomeBar") ),ThreadModel(username: "carlos",userIdent: "@Carlos" , tweet: "Right now, lets explain what happens in the code above. We defined a struct Person with two stored properties name and age.", img: #imageLiteral(resourceName: "HomeBar") )]
     }
     
     func getData() -> [ThreadModel]
