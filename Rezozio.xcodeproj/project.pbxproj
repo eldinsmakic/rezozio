@@ -120,6 +120,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9965C61423B7A0380079A0C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9965C61523B7A0420079A0C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9965C61623B7A0480079A0C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		99DBB1BA23B27962006404AC = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +166,9 @@
 		99DBB1C523B27962006404AC /* Rezozio */ = {
 			isa = PBXGroup;
 			children = (
+				9965C61423B7A0380079A0C8 /* Model */,
+				9965C61523B7A0420079A0C8 /* View */,
+				9965C61623B7A0480079A0C8 /* Controller */,
 				99DBB1C623B27962006404AC /* AppDelegate.swift */,
 				99DBB1C823B27962006404AC /* SceneDelegate.swift */,
 				999724AE23B2BD2E00ED570F /* SignUpViewController.swift */,
