@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		416193F91158E39B18274681 /* Pods_Rezozio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4814EC945AE97886E9D7374 /* Pods_Rezozio.framework */; };
 		791B9248E2DB64F8B135730E /* Pods_Rezozio_RezozioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FD638871FA3DBE9C8A23C2 /* Pods_Rezozio_RezozioUITests.framework */; };
+		9965C61323B4F47C0079A0C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C61223B4F47C0079A0C8 /* MainViewController.swift */; };
 		999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999724AE23B2BD2E00ED570F /* SignUpViewController.swift */; };
 		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
 		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
 		99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */; };
-		99DBB1CE23B27962006404AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1CD23B27962006404AC /* ContentView.swift */; };
 		99DBB1D023B27965006404AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1CF23B27965006404AC /* Assets.xcassets */; };
 		99DBB1D323B27965006404AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1D223B27965006404AC /* Preview Assets.xcassets */; };
 		99DBB1D623B27965006404AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99DBB1D423B27965006404AC /* LaunchScreen.storyboard */; };
@@ -45,12 +45,12 @@
 		1CE3B580F8173A778D62CD96 /* Pods-Rezozio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rezozio.release.xcconfig"; path = "Target Support Files/Pods-Rezozio/Pods-Rezozio.release.xcconfig"; sourceTree = "<group>"; };
 		4605E9EE1AA51A0DABA9B487 /* Pods-RezozioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezozioTests.release.xcconfig"; path = "Target Support Files/Pods-RezozioTests/Pods-RezozioTests.release.xcconfig"; sourceTree = "<group>"; };
 		4A30BFB22722296DB25CC7E0 /* Pods-Rezozio-RezozioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rezozio-RezozioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rezozio-RezozioUITests/Pods-Rezozio-RezozioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9965C61223B4F47C0079A0C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		999724AE23B2BD2E00ED570F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99DBB1C823B27962006404AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		99DBB1CB23B27962006404AC /* Rezozio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rezozio.xcdatamodel; sourceTree = "<group>"; };
-		99DBB1CD23B27962006404AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		99DBB1CF23B27965006404AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99DBB1D223B27965006404AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99DBB1D523B27965006404AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				99DBB1C623B27962006404AC /* AppDelegate.swift */,
 				99DBB1C823B27962006404AC /* SceneDelegate.swift */,
 				999724AE23B2BD2E00ED570F /* SignUpViewController.swift */,
-				99DBB1CD23B27962006404AC /* ContentView.swift */,
+				9965C61223B4F47C0079A0C8 /* MainViewController.swift */,
 				99DBB1CF23B27965006404AC /* Assets.xcassets */,
 				99DBB1D423B27965006404AC /* LaunchScreen.storyboard */,
 				99DBB1D723B27965006404AC /* Info.plist */,
@@ -427,7 +427,7 @@
 			files = (
 				99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */,
 				99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */,
-				99DBB1CE23B27962006404AC /* ContentView.swift in Sources */,
+				9965C61323B4F47C0079A0C8 /* MainViewController.swift in Sources */,
 				99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */,
 				999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */,
 			);
