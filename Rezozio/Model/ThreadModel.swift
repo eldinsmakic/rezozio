@@ -13,13 +13,16 @@ class ThreadModel
 {
     
     var username: String?
-    
+    var userIdent: String?
     var image: UIImage?
+    var tweet: String?
     
-    init(username : String , img : UIImage ) {
+    init(username : String , userIdent: String , tweet: String, img : UIImage ) {
         self.username = username
         self.image = img
-        
+        self.userIdent = userIdent
+        self.tweet = tweet
+    
     }
 
 }
