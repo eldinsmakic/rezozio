@@ -46,24 +46,25 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     let cellID = "cellID"
     let headerId = "headerId"
     let footerId = "footerId"
-
+    let managerData  = ManageData().getData()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
-        collectionView.register( WordCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register( ThreadCell.self , forCellWithReuseIdentifier: ThreadCell.reuseIdentifier)
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return managerData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThreadCell.reuseIdentifier, for: indexPath) as! ThreadCell
+        cell.threadModel = managerData[indexPath.item]
         return cell
     }
     
