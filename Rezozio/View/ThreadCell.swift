@@ -5,6 +5,8 @@
 //  Created by eldin smakic on 28/12/2019.
 //  Copyright © 2019 eldin smakic. All rights reserved.
 //
+// This class is a basic tweet format
+//
 
 import Foundation
 import UIKit
@@ -27,6 +29,7 @@ class ThreadCell : UICollectionViewCell
         super.init(frame: frame)
         contentView.backgroundColor = .darkGray
         
+        //INIT ELEMENTS
         userLabel = UILabel()
         userLabel.backgroundColor = .green
         userLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,13 +52,15 @@ class ThreadCell : UICollectionViewCell
         followButton.backgroundColor = .cyan
         followButton.translatesAutoresizingMaskIntoConstraints = false
         
-        
+        //ADD them to the view
         contentView.addSubview(imgImageView)
         contentView.addSubview(userLabel)
         contentView.addSubview(userIdentLabel)
         contentView.addSubview(tweetTextView)
         contentView.addSubview(followButton)
-    
+        
+        
+        //SETUP constraint
         userLabel.topAnchor.constraint(equalTo: imgImageView.topAnchor ).isActive = true
         userLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor, constant: -12).isActive = true
         userLabel.leftAnchor.constraint(equalTo: imgImageView.rightAnchor, constant: 12).isActive = true
@@ -87,6 +92,7 @@ class ThreadCell : UICollectionViewCell
         fatalError("init(coder:) has not been implemented")
     }
     
+    // setup all elements of ThreadCell
     func showLandmark() {
         
         userLabel.text = threadModel?.username
@@ -99,6 +105,7 @@ class ThreadCell : UICollectionViewCell
         
     }
     
+    // Set a basic identifier name
     static var reuseIdentifier : String{
         return String(describing: self)
     }
