@@ -22,6 +22,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         addRoundedCornerToButton()
         addRoundedCornerToTextView()
+        addPrefixMailAndPassword()
         // Do any additional setup after loading the view.
     }
     
@@ -50,16 +51,16 @@ class SignUpViewController: UIViewController {
             let pw = passwordTextField.text!
             let email = emailTextField.text!
             Auth.auth().createUser(withEmail: email, password: pw, completion:
-                           {
-                               (authResult,error) in
-                               if (error != nil)
-                               {
-                                   print(error.debugDescription)
-                               }
-                               else
-                               {
-                                   print("succes")
-                               }
+           {
+               (authResult,error) in
+               if (error != nil)
+               {
+                   print(error.debugDescription)
+               }
+               else
+               {
+                   print("succes")
+               }
 
             })
         }
@@ -84,19 +85,21 @@ class SignUpViewController: UIViewController {
                 if (pass)
                 {
                     let pw = passwordTextField.text!
-                let email = emailTextField.text!
-                                   Auth.auth().signIn(withEmail: email, password: pw, completion:
-                                       {
-                                           (auth,error) in
-                                           if (error != nil)
-                                           {
-                                               print( error.debugDescription)
-                                           }
-                                           else
-                                           {
-                                               print("login success")
-                                           }
-                                       })
+                    let email = emailTextField.text!
+                    Auth.auth().signIn(withEmail: email, password: pw, completion:
+                   {
+                       (auth,error) in
+                       if (error != nil)
+                       {
+                           print( error.debugDescription)
+                       }
+                       else
+                       {
+                        
+                        let mainVC = MainViewController( collectionViewLayout : UICollectionViewLayout())
+                        self.present( mainVC , animated: true, completion: nil)
+                       }
+                   })
             }
                
     }
@@ -135,6 +138,13 @@ class SignUpViewController: UIViewController {
         usernameTextField.layer.cornerRadius = 20
         passwordTextField.layer.cornerRadius = 20
         emailTextField.layer.cornerRadius = 20
+    }
+    
+    
+    private func addPrefixMailAndPassword()
+    {
+        passwordTextField.text = "testtest"
+        emailTextField.text = "test@test.fr"
     }
     
     
