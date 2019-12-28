@@ -11,8 +11,11 @@ import UIKit
 
 class ThreadCell : UICollectionViewCell
 {
-    private var user : UILabel!
-    private var img: UIImageView!
+    private var userLabel : UILabel!
+    private var userIdentLabel : UILabel!
+    private var imgImageView: UIImageView!
+    private var tweetTextView : UITextView!
+    private var followButton : UIButton!
     
     var threadModel: ThreadModel? {
         didSet {
@@ -46,9 +49,13 @@ class ThreadCell : UICollectionViewCell
     
     func showLandmark() {
         
-        user.text = threadModel?.username
+        userLabel.text = threadModel?.username
         
-        img.image = threadModel?.image
+        imgImageView.image = threadModel?.image
+        
+        userIdentLabel.text = threadModel?.userIdent
+        
+        tweetTextView.text = threadModel?.tweet
         
     }
     
