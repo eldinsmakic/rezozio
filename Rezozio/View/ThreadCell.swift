@@ -27,20 +27,60 @@ class ThreadCell : UICollectionViewCell
         super.init(frame: frame)
         contentView.backgroundColor = .darkGray
         
-        user = UILabel()
-        user.numberOfLines = 0
-        user.textAlignment = .center
-        user.translatesAutoresizingMaskIntoConstraints = false
+        userLabel = UILabel()
+        userLabel.backgroundColor = .green
+        userLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        img = UIImageView(frame: CGRect(x: 0, y: 0, width: contentView.bounds.width, height: contentView.bounds.height))
-        img.clipsToBounds = true
-        img.backgroundColor = .clear
-        img.contentMode = .scaleAspectFill
-        img.translatesAutoresizingMaskIntoConstraints = false
+        userIdentLabel = UILabel()
+        userIdentLabel.backgroundColor = .purple
+        userIdentLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(img)
-        contentView.addSubview(user)
+        tweetTextView = UITextView()
+        tweetTextView.backgroundColor = .yellow
+        tweetTextView.translatesAutoresizingMaskIntoConstraints = false
         
+        imgImageView = UIImageView()
+        imgImageView.backgroundColor = .red
+        imgImageView.clipsToBounds = true
+        imgImageView.contentMode = .scaleAspectFill
+        imgImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        followButton = UIButton()
+        followButton.backgroundColor = .cyan
+        followButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        contentView.addSubview(imgImageView)
+        contentView.addSubview(userLabel)
+        contentView.addSubview(userIdentLabel)
+        contentView.addSubview(tweetTextView)
+        contentView.addSubview(followButton)
+    
+        userLabel.topAnchor.constraint(equalTo: imgImageView.topAnchor ).isActive = true
+        userLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor, constant: -12).isActive = true
+        userLabel.leftAnchor.constraint(equalTo: imgImageView.rightAnchor, constant: 12).isActive = true
+        userLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        userIdentLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor , constant: 5).isActive = true
+        userIdentLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor , constant: -12).isActive = true
+        userIdentLabel.leftAnchor.constraint(equalTo: userLabel.leftAnchor ).isActive = true
+        userIdentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+        tweetTextView.topAnchor.constraint(equalTo: userIdentLabel.bottomAnchor , constant: 10).isActive = true
+        tweetTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
+        tweetTextView.leftAnchor.constraint(equalTo: imgImageView.rightAnchor, constant: 12).isActive = true
+        tweetTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        imgImageView.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
+        imgImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
+        imgImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imgImageView.heightAnchor.constraint(equalToConstant: 50 ).isActive = true
+        
+        followButton.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
+        followButton.rightAnchor.constraint(equalTo: contentView.rightAnchor , constant: 12).isActive = true
+        followButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    
     }
     
     required init?(coder: NSCoder) {
