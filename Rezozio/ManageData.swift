@@ -10,13 +10,13 @@ import Foundation
 
 
 class ManageData {
-    private let data: [ThreadModel]
+    private let data: [UserModel]
     init()
     {
-    self.data = [ThreadModel(username: "jean", userIdent: "@Jean" , tweet: "Right now, lets explain what happens in the code above. We defined a struct Person with two stored properties name and age.", img: #imageLiteral(resourceName: "HomeBar") ),ThreadModel(username: "carlos",userIdent: "@Carlos" , tweet: "Right now, lets explain what happens in the code above. We defined a struct Person with two stored properties name and age.", img: #imageLiteral(resourceName: "HomeBar") )]
+        self.data = [UserModel(username: "jean", userIdent: "@Jean" , userBio: "Right now, Hello world to everry one.", img: #imageLiteral(resourceName: "ImgProfile1") ),UserModel(username: "carlos",userIdent: "@Carlos" , userBio: "Right now, lets explain what happens in the code above. Lets drink.", img: #imageLiteral(resourceName: "imgProfile2") ) , UserModel(username: "Artos",userIdent: "@Artos" , userBio: "I love you the more in that I believe you had liked me for my own sake and for nothing else ", img: #imageLiteral(resourceName: "imgProfile3") )]
     }
     
-    func getData() -> [ThreadModel]
+    func getData() -> [UserModel]
     {
         return self.data
     }
