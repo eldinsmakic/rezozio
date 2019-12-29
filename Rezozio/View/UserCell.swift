@@ -1,22 +1,24 @@
 //
-//  ThreadCell.swift
+//  UserCell.swift
 //  Rezozio
 //
 //  Created by eldin smakic on 28/12/2019.
 //  Copyright © 2019 eldin smakic. All rights reserved.
 //
-// This class is a basic tweet format
+// This class is a basic user cell of tweeter
+// where you can see the picture, name, username and bio
+// and follow or not this user
 //
 
 import Foundation
 import UIKit
 
-class ThreadCell : UICollectionViewCell
+class UserCell : UICollectionViewCell
 {
     private var userLabel : UILabel!
     private var userIdentLabel : UILabel!
-    private var imgImageView: UIImageView!
-    private var tweetTextView : UITextView!
+    private var profileImageView: UIImageView!
+    private var userBioTextView : UITextView!
     private var followButton : UIButton!
     
     var threadModel: ThreadModel? {
@@ -38,16 +40,16 @@ class ThreadCell : UICollectionViewCell
         userIdentLabel.textColor = .gray
         userIdentLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        tweetTextView = UITextView()
-        tweetTextView.font  = UIFont.boldSystemFont(ofSize: 15)
-        tweetTextView.translatesAutoresizingMaskIntoConstraints = false
+        userBioTextView = UITextView()
+        userBioTextView.font  = UIFont.boldSystemFont(ofSize: 15)
+        userBioTextView.translatesAutoresizingMaskIntoConstraints = false
         
-        imgImageView = UIImageView()
-        imgImageView.layer.cornerRadius = 5
-        imgImageView.layer.masksToBounds = true
-        imgImageView.clipsToBounds = true
-        imgImageView.contentMode = .scaleAspectFill
-        imgImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView = UIImageView()
+        profileImageView.layer.cornerRadius = 5
+        profileImageView.layer.masksToBounds = true
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
         
         followButton = UIButton()
         followButton.backgroundColor = .white
@@ -60,17 +62,17 @@ class ThreadCell : UICollectionViewCell
         followButton.translatesAutoresizingMaskIntoConstraints = false
         
         //ADD them to the view
-        contentView.addSubview(imgImageView)
+        contentView.addSubview(profileImageView)
         contentView.addSubview(userLabel)
         contentView.addSubview(userIdentLabel)
-        contentView.addSubview(tweetTextView)
+        contentView.addSubview(userBioTextView)
         contentView.addSubview(followButton)
         
         
         //SETUP constraint
-        userLabel.topAnchor.constraint(equalTo: imgImageView.topAnchor ).isActive = true
+        userLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor ).isActive = true
         userLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor, constant: -12).isActive = true
-        userLabel.leftAnchor.constraint(equalTo: imgImageView.rightAnchor, constant: 12).isActive = true
+        userLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
         userLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         userIdentLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor , constant: 5).isActive = true
@@ -78,15 +80,15 @@ class ThreadCell : UICollectionViewCell
         userIdentLabel.leftAnchor.constraint(equalTo: userLabel.leftAnchor ).isActive = true
         userIdentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-        tweetTextView.topAnchor.constraint(equalTo: userIdentLabel.bottomAnchor , constant: 10).isActive = true
-        tweetTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12).isActive = true
-        tweetTextView.leftAnchor.constraint(equalTo: imgImageView.rightAnchor, constant: 12).isActive = true
-        tweetTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        userBioTextView.topAnchor.constraint(equalTo: userIdentLabel.bottomAnchor , constant: 10).isActive = true
+        userBioTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12).isActive = true
+        userBioTextView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
+        userBioTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
-        imgImageView.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
-        imgImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
-        imgImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        imgImageView.heightAnchor.constraint(equalToConstant: 50 ).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
+        profileImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 50 ).isActive = true
         
         followButton.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
         followButton.rightAnchor.constraint(equalTo: contentView.rightAnchor , constant: -12).isActive = true
@@ -104,11 +106,11 @@ class ThreadCell : UICollectionViewCell
         
         userLabel.text = threadModel?.username
         
-        imgImageView.image = threadModel?.image
+        profileImageView.image = threadModel?.image
         
         userIdentLabel.text = threadModel?.userIdent
         
-        tweetTextView.text = threadModel?.tweet
+        userBioTextView.text = threadModel?.tweet
         
     }
     
