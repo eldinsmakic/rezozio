@@ -27,29 +27,36 @@ class ThreadCell : UICollectionViewCell
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .darkGray
         
         //INIT ELEMENTS
         userLabel = UILabel()
-        userLabel.backgroundColor = .green
+        userLabel.font = UIFont.boldSystemFont(ofSize: 16)
         userLabel.translatesAutoresizingMaskIntoConstraints = false
         
         userIdentLabel = UILabel()
-        userIdentLabel.backgroundColor = .purple
+        userIdentLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        userIdentLabel.textColor = .gray
         userIdentLabel.translatesAutoresizingMaskIntoConstraints = false
         
         tweetTextView = UITextView()
-        tweetTextView.backgroundColor = .yellow
+        tweetTextView.font  = UIFont.boldSystemFont(ofSize: 15)
         tweetTextView.translatesAutoresizingMaskIntoConstraints = false
         
         imgImageView = UIImageView()
-        imgImageView.backgroundColor = .red
+        imgImageView.layer.cornerRadius = 5
+        imgImageView.layer.masksToBounds = true
         imgImageView.clipsToBounds = true
         imgImageView.contentMode = .scaleAspectFill
         imgImageView.translatesAutoresizingMaskIntoConstraints = false
         
         followButton = UIButton()
-        followButton.backgroundColor = .cyan
+        followButton.backgroundColor = .white
+        followButton.layer.cornerRadius = 5
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = CGColor(srgbRed: 0, green: 255, blue: 255, alpha: 1)
+        followButton.setTitle("Follow", for: .normal)
+        followButton.setTitleColor(UIColor(cgColor: CGColor(srgbRed: 0, green: 255, blue: 255, alpha: 1)), for: .normal )
+        followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         followButton.translatesAutoresizingMaskIntoConstraints = false
         
         //ADD them to the view
@@ -72,9 +79,9 @@ class ThreadCell : UICollectionViewCell
         userIdentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
         tweetTextView.topAnchor.constraint(equalTo: userIdentLabel.bottomAnchor , constant: 10).isActive = true
-        tweetTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0).isActive = true
+        tweetTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12).isActive = true
         tweetTextView.leftAnchor.constraint(equalTo: imgImageView.rightAnchor, constant: 12).isActive = true
-        tweetTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        tweetTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         imgImageView.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
         imgImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
@@ -82,7 +89,7 @@ class ThreadCell : UICollectionViewCell
         imgImageView.heightAnchor.constraint(equalToConstant: 50 ).isActive = true
         
         followButton.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
-        followButton.rightAnchor.constraint(equalTo: contentView.rightAnchor , constant: 12).isActive = true
+        followButton.rightAnchor.constraint(equalTo: contentView.rightAnchor , constant: -12).isActive = true
         followButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
         followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     
