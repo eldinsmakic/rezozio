@@ -21,7 +21,7 @@ class UserCell : UICollectionViewCell
     private var userBioTextView : UITextView!
     private var followButton : UIButton!
     
-    var threadModel: ThreadModel? {
+    var userModel: UserModel? {
         didSet {
             showLandmark()
         }
@@ -104,13 +104,13 @@ class UserCell : UICollectionViewCell
     // setup all elements of ThreadCell
     func showLandmark() {
         
-        userLabel.text = threadModel?.username
+        userLabel.text = userModel?.username
         
-        profileImageView.image = threadModel?.image
+        profileImageView.image = userModel?.image
         
-        userIdentLabel.text = threadModel?.userIdent
+        userIdentLabel.text = userModel?.userIdent
         
-        userBioTextView.text = threadModel?.tweet
+        userBioTextView.text = userModel?.userBio
         
     }
     
