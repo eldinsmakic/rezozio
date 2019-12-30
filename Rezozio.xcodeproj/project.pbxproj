@@ -14,6 +14,7 @@
 		9965C62023B7B33B0079A0C8 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C61F23B7B33B0079A0C8 /* UserCell.swift */; };
 		9965C62223B7BDF80079A0C8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62123B7BDF80079A0C8 /* UserModel.swift */; };
 		9965C62423B8CD940079A0C8 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62323B8CD940079A0C8 /* TweetCell.swift */; };
+		9965C62623BA64CA0079A0C8 /* TweetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62523BA64CA0079A0C8 /* TweetModel.swift */; };
 		999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999724AE23B2BD2E00ED570F /* SignUpViewController.swift */; };
 		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
 		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
@@ -53,6 +54,7 @@
 		9965C61F23B7B33B0079A0C8 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		9965C62123B7BDF80079A0C8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9965C62323B8CD940079A0C8 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		9965C62523BA64CA0079A0C8 /* TweetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetModel.swift; sourceTree = "<group>"; };
 		999724AE23B2BD2E00ED570F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				9965C62123B7BDF80079A0C8 /* UserModel.swift */,
+				9965C62523BA64CA0079A0C8 /* TweetModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */,
+				9965C62623BA64CA0079A0C8 /* TweetModel.swift in Sources */,
 				99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */,
 				9965C62023B7B33B0079A0C8 /* UserCell.swift in Sources */,
 				9965C62423B8CD940079A0C8 /* TweetCell.swift in Sources */,
