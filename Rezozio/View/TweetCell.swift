@@ -20,6 +20,11 @@ class TweetCell : UICollectionViewCell
     private var profileImageView : UIImageView!
     private var tweetTextView : UITextView!
     
+    var userModel: UserModel? {
+        didSet {
+            showLandmark()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame : frame)
@@ -78,5 +83,23 @@ class TweetCell : UICollectionViewCell
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func showLandmark() {
+        
+        userLabel.text = userModel?.username
+        
+        profileImageView.image = userModel?.image
+        
+        userIdentLabel.text = userModel?.userIdent
+        
+        tweetTextView.text = userModel?.userBio
+        
+    }
+    
+    // Set a basic identifier name
+       static var reuseIdentifier : String{
+           return String(describing: self)
+       }
+    
     
 }
