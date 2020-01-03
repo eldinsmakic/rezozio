@@ -15,6 +15,8 @@
 		9965C62223B7BDF80079A0C8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62123B7BDF80079A0C8 /* UserModel.swift */; };
 		9965C62423B8CD940079A0C8 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62323B8CD940079A0C8 /* TweetCell.swift */; };
 		9965C62623BA64CA0079A0C8 /* TweetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62523BA64CA0079A0C8 /* TweetModel.swift */; };
+		9965C62823BACB7E0079A0C8 /* FollowUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62723BACB7E0079A0C8 /* FollowUsersController.swift */; };
+		9965C62A23BE4EB20079A0C8 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62923BE4EB20079A0C8 /* TweetViewController.swift */; };
 		999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999724AE23B2BD2E00ED570F /* SignUpViewController.swift */; };
 		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
 		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
@@ -55,6 +57,8 @@
 		9965C62123B7BDF80079A0C8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9965C62323B8CD940079A0C8 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		9965C62523BA64CA0079A0C8 /* TweetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetModel.swift; sourceTree = "<group>"; };
+		9965C62723BACB7E0079A0C8 /* FollowUsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUsersController.swift; sourceTree = "<group>"; };
+		9965C62923BE4EB20079A0C8 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		999724AE23B2BD2E00ED570F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,10 @@
 		9965C61623B7A0480079A0C8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				999724AE23B2BD2E00ED570F /* SignUpViewController.swift */,
+				9965C61223B4F47C0079A0C8 /* MainViewController.swift */,
+				9965C62723BACB7E0079A0C8 /* FollowUsersController.swift */,
+				9965C62923BE4EB20079A0C8 /* TweetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,8 +191,6 @@
 				9965C61623B7A0480079A0C8 /* Controller */,
 				99DBB1C623B27962006404AC /* AppDelegate.swift */,
 				99DBB1C823B27962006404AC /* SceneDelegate.swift */,
-				999724AE23B2BD2E00ED570F /* SignUpViewController.swift */,
-				9965C61223B4F47C0079A0C8 /* MainViewController.swift */,
 				99DBB1CF23B27965006404AC /* Assets.xcassets */,
 				99DBB1D423B27965006404AC /* LaunchScreen.storyboard */,
 				99DBB1D723B27965006404AC /* Info.plist */,
@@ -456,9 +462,11 @@
 				9965C62623BA64CA0079A0C8 /* TweetModel.swift in Sources */,
 				99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */,
 				9965C62023B7B33B0079A0C8 /* UserCell.swift in Sources */,
+				9965C62823BACB7E0079A0C8 /* FollowUsersController.swift in Sources */,
 				9965C62423B8CD940079A0C8 /* TweetCell.swift in Sources */,
 				9965C61323B4F47C0079A0C8 /* MainViewController.swift in Sources */,
 				99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */,
+				9965C62A23BE4EB20079A0C8 /* TweetViewController.swift in Sources */,
 				9965C62223B7BDF80079A0C8 /* UserModel.swift in Sources */,
 				999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */,
 				9965C61E23B7AE0A0079A0C8 /* ManageData.swift in Sources */,
