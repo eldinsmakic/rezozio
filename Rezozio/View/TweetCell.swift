@@ -19,16 +19,16 @@ class TweetCell : UICollectionViewCell
     private var userIdentLabel : UILabel!
     private var profileImageView : UIImageView!
     private var tweetTextView : UITextView!
+
     
-    var userModel: UserModel? {
+    var tweetModel: TweetModel? {
         didSet {
             showLandmark()
         }
     }
     
     override init(frame: CGRect) {
-        super.init(frame : frame)
-        
+       super.init(frame : frame)
        userLabel = UILabel()
        userLabel.font = UIFont.boldSystemFont(ofSize: 16)
        userLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,13 +86,13 @@ class TweetCell : UICollectionViewCell
     
     func showLandmark() {
         
-        userLabel.text = userModel?.username
+        userLabel.text = tweetModel?.username
         
-        profileImageView.image = userModel?.image
+        profileImageView.image = tweetModel?.image
         
-        userIdentLabel.text = userModel?.userIdent
+        userIdentLabel.text = tweetModel?.userIdent
         
-        tweetTextView.text = userModel?.userBio
+        tweetTextView.text = tweetModel?.tweet
         
     }
     
