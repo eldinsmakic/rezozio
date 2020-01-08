@@ -25,5 +25,21 @@ class UserModel
         self.userIdent = userIdent
         self.userBio = userBio
     }
-
+    
+    func getUserName() -> String
+    {
+        return self.username!
+    }
+    
+    func getUserIdent() -> String
+    {
+        return self.userIdent!
+    }
+    
+    func getUserBio() -> String
+    {
+        return self.userBio!
+    }
+    
+    
 }
