@@ -17,6 +17,8 @@
 		9965C62623BA64CA0079A0C8 /* TweetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62523BA64CA0079A0C8 /* TweetModel.swift */; };
 		9965C62823BACB7E0079A0C8 /* FollowUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62723BACB7E0079A0C8 /* FollowUsersController.swift */; };
 		9965C62A23BE4EB20079A0C8 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9965C62923BE4EB20079A0C8 /* TweetViewController.swift */; };
+		997DFA8023C6387000F373D7 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997DFA7F23C6387000F373D7 /* UserFactory.swift */; };
+		997DFA8223C6466B00F373D7 /* TweetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997DFA8123C6466B00F373D7 /* TweetFactory.swift */; };
 		999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999724AE23B2BD2E00ED570F /* SignUpViewController.swift */; };
 		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
 		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
@@ -59,6 +61,8 @@
 		9965C62523BA64CA0079A0C8 /* TweetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetModel.swift; sourceTree = "<group>"; };
 		9965C62723BACB7E0079A0C8 /* FollowUsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUsersController.swift; sourceTree = "<group>"; };
 		9965C62923BE4EB20079A0C8 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		997DFA7F23C6387000F373D7 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		997DFA8123C6466B00F373D7 /* TweetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFactory.swift; sourceTree = "<group>"; };
 		999724AE23B2BD2E00ED570F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +165,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		997DFA7E23C635F800F373D7 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				997DFA7F23C6387000F373D7 /* UserFactory.swift */,
+				997DFA8123C6466B00F373D7 /* TweetFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		99DBB1BA23B27962006404AC = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +199,7 @@
 		99DBB1C523B27962006404AC /* Rezozio */ = {
 			isa = PBXGroup;
 			children = (
+				997DFA7E23C635F800F373D7 /* Factory */,
 				9965C61423B7A0380079A0C8 /* Model */,
 				9965C61523B7A0420079A0C8 /* View */,
 				9965C61623B7A0480079A0C8 /* Controller */,
@@ -458,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				997DFA8223C6466B00F373D7 /* TweetFactory.swift in Sources */,
 				99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */,
 				9965C62623BA64CA0079A0C8 /* TweetModel.swift in Sources */,
 				99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */,
@@ -466,6 +481,7 @@
 				9965C62423B8CD940079A0C8 /* TweetCell.swift in Sources */,
 				9965C61323B4F47C0079A0C8 /* MainViewController.swift in Sources */,
 				99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */,
+				997DFA8023C6387000F373D7 /* UserFactory.swift in Sources */,
 				9965C62A23BE4EB20079A0C8 /* TweetViewController.swift in Sources */,
 				9965C62223B7BDF80079A0C8 /* UserModel.swift in Sources */,
 				999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */,
