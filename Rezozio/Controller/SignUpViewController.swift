@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
 
@@ -16,13 +17,18 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
-   
+    
+    private var firestore: Firestore!
+    private var manageData : ManageData!
+    private var navControler : UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addRoundedCornerToButton()
         addRoundedCornerToTextView()
         addPrefixMailAndPassword()
+        self.firestore = Firestore.firestore()
+        self.manageData =  ManageData()
         // Do any additional setup after loading the view.
     }
     
@@ -50,6 +56,7 @@ class SignUpViewController: UIViewController {
         {
             let pw = passwordTextField.text!
             let email = emailTextField.text!
+            let user  = usernameTextField.text!
             Auth.auth().createUser(withEmail: email, password: pw, completion:
            {
                (authResult,error) in
@@ -59,7 +66,11 @@ class SignUpViewController: UIViewController {
                }
                else
                {
-                   print("succes")
+                 if (self.manageData.addUserToDataBase(user: user, email: email))
+                 {
+                    print("Succes")
+                 }
+                     
                }
 
             })
@@ -69,7 +80,7 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func OnClickLogin(_ sender: UIButton) {
-                var pass : Bool = true
+               var pass : Bool = true
                if (isPasswordValid() == false)
                {
                   
@@ -95,9 +106,8 @@ class SignUpViewController: UIViewController {
                        }
                        else
                        {
-                        
-                        let mainVC = MainViewController( collectionViewLayout : UICollectionViewLayout())
-                        self.present( mainVC , animated: true, completion: nil)
+                        let mainVC = MainViewController( collectionViewLayout : UICollectionViewFlowLayout())
+                        self.navigationController?.pushViewController(mainVC, animated: true)
                        }
                    })
             }
@@ -144,7 +154,7 @@ class SignUpViewController: UIViewController {
     private func addPrefixMailAndPassword()
     {
         passwordTextField.text = "testtest"
-        emailTextField.text = "test@test.fr"
+        emailTextField.text = "test@test1.fr"
     }
     
     
