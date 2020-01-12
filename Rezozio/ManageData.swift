@@ -288,9 +288,61 @@ class ManageData {
                     seal.fulfill(ref.documentID)
                     
                 }
+                
             }
     }
     
+    // add a tweet id to the user list tweet id
+    func addTweetToUser( tweetUID : String)
+    {
+        var tweetId = try! await(self.getUserTweetId())
+        tweetId.append(tweetUID)
+        db.collection("tweetsId").document(uid).setData(["tweetsId": tweetId])
+        {
+            error in
+            if error != nil
+            {
+                print(error)
+            }
+            else
+            {
+                print("Tweet Added To TWeetsID")
+            }
+        }
+    }
+    
+    // return an ilist of all user tweet's Id
+    func getUserTweetId() -> Promise<[String]>
+    {
+        
+        return Promise<[String]>
+            {
+                seal in
+                db.collection("tweetsId").document(uid).getDocument
+                {
+                    (document, error) in
+                    if (error != nil)
+                    {
+                        seal.reject(error!)
+                    }
+                    else
+                    {
+                        var tweets : [String] = []
+                        if (document!.exists)
+                        {
+                            let data =  document?.data()
+                            tweets = data!["tweetsId"] as! [String]
+                            seal.fulfill(tweets)
+                        }
+                        else
+                        {
+                            seal.fulfill(tweets)
+                        }
+                        
+                    }
+                }
+            }
+    }
     
     
 }
