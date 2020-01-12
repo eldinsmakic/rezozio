@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import AwaitKit
+import PromiseKit
 
 class FollowUsersController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
 
     private let  headerId = "headerId"
     private let  footerId = "footerId"
     private var managerData : ManageData
-    private var data : [UserModel]
+    var data : [UserModel]
     override init(collectionViewLayout layout: UICollectionViewLayout) {
-           self.managerData = ManageData()
-           self.data = self.managerData.getUserData()
-           super.init(collectionViewLayout: layout)
+        self.managerData = ManageData()
+        self.data = []
+        super.init(collectionViewLayout: layout)
        }
     
     
@@ -27,12 +29,24 @@ class FollowUsersController: UICollectionViewController , UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.fetchUsers()
         self.setupCells()
         self.setupNavigationBar()
 
         // Do any additional setup after loading the view.
     }
+    
+     func fetchUsers()
+     {
+        async{
+            let data = try! await(self.managerData.getUsers())
+            self.data = data
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+      }
+    
     
      func setupCells()
         {
@@ -109,7 +123,7 @@ class FollowUsersController: UICollectionViewController , UICollectionViewDelega
         }
         
         override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return managerData.getLength()
+            return self.data.count
         }
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
