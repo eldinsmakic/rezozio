@@ -19,7 +19,7 @@ class UserCell : UICollectionViewCell
     private var userIdentLabel : UILabel!
     private var profileImageView: UIImageView!
     private var userBioTextView : UITextView!
-    private var followButton : UIButton!
+    var followButton : UIButton!
     
     var userModel: UserModel? {
         didSet {
@@ -101,16 +101,21 @@ class UserCell : UICollectionViewCell
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+   
+    
     // setup all elements of ThreadCell
     func showLandmark() {
         
-        userLabel.text = userModel?.username
+        userLabel.text = userModel?.getName()
         
-        profileImageView.image = userModel?.image
+        profileImageView.image = userModel?.getImage()
         
-        userIdentLabel.text = userModel?.userIdent
+        userIdentLabel.text = "@" +  userModel!.getScreenName()
         
-        userBioTextView.text = userModel?.userBio
+        userBioTextView.text = userModel?.getDescription()
+        
+        
         
     }
     

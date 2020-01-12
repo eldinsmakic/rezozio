@@ -90,7 +90,7 @@ class TweetCell : UICollectionViewCell
         
         profileImageView.image = tweetModel?.image
         
-        userIdentLabel.text = tweetModel?.userIdent
+        userIdentLabel.text = "@" + tweetModel!.userIdent!
         
         tweetTextView.text = tweetModel?.tweet
         
