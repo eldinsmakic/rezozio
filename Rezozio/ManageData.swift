@@ -68,6 +68,63 @@ class ManageData {
         }
     }
     
+    
+    // Return All tweet in database
+    func getTweetsOrdByTime() -> Promise<[TweetModel]>
+    {
+        var result : [TweetModel] = []
+        return Promise<[TweetModel]>
+        {
+            seal in
+            self.db.collection("tweets").order(by: "create_at", descending: true).getDocuments
+            {
+                (document, Error) in
+                    if let document  =  document , !document.isEmpty
+                    {
+                        for data in document.documents
+                            {
+                                let curData = data.data()
+                                result.append(TweetFactory.factory.createTweetFromData(data: curData))
+                            }
+                        seal.fulfill(result)
+                    }
+                    else
+                    {
+                        seal.reject(Error!)
+                    }
+            }
+        }
+    }
+    
+    func getTweetsOrdByTimeAndFollowByUser() -> Promise<[TweetModel]>
+    {
+        var result : [TweetModel] = []
+        let follow = try! await(self.getUserFolows())
+        return Promise<[TweetModel]>
+        {
+            seal in
+            self.db.collection("tweets").order(by: "create_at", descending: true).getDocuments
+            {
+                (document, Error) in
+                    if let document  =  document , !document.isEmpty
+                    {
+                        for data in document.documents
+                            {
+                                let curData = data.data()
+                                result.append(TweetFactory.factory.createTweetFromData(data: curData))
+                            }
+                        seal.fulfill(result)
+                    }
+                    else
+                    {
+                        seal.reject(Error!)
+                    }
+            }
+        }
+    }
+    
+    
+    
     // Get all user that can be follow by the app user
     func getUsers() -> Promise<[UserModel]>
     {
