@@ -16,22 +16,14 @@ import PromiseKit
 class ManageData {
     
     private let db : Firestore
-    private var data: [TweetModel]
-    
+    private let uid : String
     init()
     {
 
         self.db = Firestore.firestore()
-        self.data = [TweetModel(username: "jean", userIdent: "@Jean" , tweet: "Right now, Hello world to everry one.", img: #imageLiteral(resourceName: "ImgProfile1") ),TweetModel(username: "carlos",userIdent: "@Carlos" , tweet: "Right now, lets explain what happens in the code above. Lets drink.", img: #imageLiteral(resourceName: "imgProfile2") ) , TweetModel(username: "Artos",userIdent: "@Artos" , tweet: "I love you the more in that I believe you had liked me for my own sake and for nothing else ", img: #imageLiteral(resourceName: "imgProfile3") )]
+        self.uid = Auth.auth().currentUser!.uid
     }
     
-    
-    // return Fake data for now
-    func getData() -> [TweetModel]
-    {
-        return self.data
-    }
-
     
     // Try to add New user to the database
     func addUserToDataBase(user : String , email : String ) -> Bool
@@ -100,7 +92,12 @@ class ManageData {
                                 
                                 if (data.documentID  !=  uid)
                                 {
-                                    let currentUser = UserFactory.factory.createUserFromDataWithUID(uid: data.documentID ,  data: data.data())!
+                                    var isFollow = false
+                                    if (followedUser.contains(data.documentID))
+                                    {
+                                        isFollow = true
+                                    }
+                                    let currentUser = UserFactory.factory.createUserFromDataWithFollowWithUID(isFollowByUser: isFollow,uid: data.documentID ,  data: data.data())!
                                     result.append(currentUser)
                                 }
                                    
