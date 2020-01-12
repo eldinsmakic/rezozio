@@ -14,31 +14,50 @@ import UIKit
 class UserModel
 {
     
-    var username: String?
-    var userIdent: String?
-    var image: UIImage?
-    var userBio: String?
+    private var id: String?
+    private var name: String?
+    private var screenName: String?
+    private var mail: String?
+    private var image: UIImage?
+    private var description: String?
+    private var followersCount : Int
+    private var friendsCount : Int
     
-    init(username : String , userIdent: String , userBio: String, img : UIImage ) {
-        self.username = username
+    
+    init(id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , followersCount : Int , friendsCount : Int ) {
+        self.id = id
+        self.name = name
+        self.screenName = screenName
+        self.mail = mail
         self.image = img
-        self.userIdent = userIdent
-        self.userBio = userBio
+        self.description = description
+        self.followersCount = followersCount
+        self.friendsCount = friendsCount
     }
     
-    func getUserName() -> String
+    func getName() -> String
     {
-        return self.username!
+        return self.name!
     }
     
-    func getUserIdent() -> String
+    func getScreenName() -> String
     {
-        return self.userIdent!
+        return self.screenName!
     }
     
-    func getUserBio() -> String
+    func getDescription() -> String
     {
-        return self.userBio!
+        return self.description!
+    }
+    
+    func getImage() -> UIImage
+    {
+        return self.image!
+    }
+    
+    func getMail()  -> String
+    {
+        return self.mail!
     }
     
     
