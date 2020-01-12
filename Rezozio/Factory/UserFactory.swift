@@ -22,6 +22,11 @@ class UserFactory {
         return UserModel(id: data["id"] as! String  , name: data["name"] as! String, screenName: data["screen_name"] as! String, mail: data["mail"] as! String, description: data["description"]as! String, img: #imageLiteral(resourceName: "imgProfile2"), followersCount: data["followers_count"]  as! Int, friendsCount: data["friends_count"]  as! Int)
     }
     
+    public func createUserFromDataWithFollowWithUID(isFollowByUser : Bool , uid : String,data : [String : Any]) -> UserModel?
+    {
+        return UserModel(id: uid  , name: data["name"] as! String, screenName: data["screen_name"] as! String, mail: data["mail"] as! String, description: data["description"]as! String, img: #imageLiteral(resourceName: "imgProfile2"), followersCount: data["followers_count"]  as! Int, friendsCount: data["friends_count"]  as! Int, isFollowByUser: isFollowByUser)
+    }
+    
     
     public func createUserFromDataWithUID(uid : String, data : [String : Any]) -> UserModel?
     {

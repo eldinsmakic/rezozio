@@ -111,6 +111,15 @@ class FollowUsersController: UICollectionViewController , UICollectionViewDelega
             self.collectionView.reloadData()
         }
         
+        @objc func followButtonOnClick(_  sender : UIButton)
+        {
+            
+            let cell = sender.superview?.superview as! UserCell
+            let user = cell.userModel!
+            cell.changeTitleFollowButton()
+            self.managerData.addOrRemoveUserFollow(uid: user.getUID() )
+            
+        }
         
         private func setupLeftButton()
         {
@@ -129,6 +138,7 @@ class FollowUsersController: UICollectionViewController , UICollectionViewDelega
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCell.reuseIdentifier, for: indexPath) as! UserCell
             cell.userModel = self.data[indexPath.item]
+            cell.followButton.addTarget(self, action: #selector(followButtonOnClick), for: .touchUpInside)
             return cell
         }
         

@@ -102,7 +102,17 @@ class UserCell : UICollectionViewCell
     }
     
     
-   
+    func changeTitleFollowButton()
+    {
+        if followButton.titleLabel!.text == "Follow"
+        {
+            followButton.setTitle("Unfollow", for: .normal)
+        }
+        else
+        {
+            followButton.setTitle("Follow", for: .normal)
+        }
+    }
     
     // setup all elements of ThreadCell
     func showLandmark() {
@@ -115,6 +125,10 @@ class UserCell : UICollectionViewCell
         
         userBioTextView.text = userModel?.getDescription()
         
+        if (userModel?.GetFollowByUser() == true)
+        {
+            followButton.setTitle("Unfollow", for: .normal)
+        }
         
         
     }

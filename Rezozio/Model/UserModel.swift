@@ -22,9 +22,10 @@ class UserModel
     private var description: String?
     private var followersCount : Int
     private var friendsCount : Int
+    private var isFollowByUser : Bool
     
-    
-    init(id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , followersCount : Int , friendsCount : Int ) {
+    init( id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , followersCount : Int , friendsCount : Int )
+    {
         self.id = id
         self.name = name
         self.screenName = screenName
@@ -33,6 +34,29 @@ class UserModel
         self.description = description
         self.followersCount = followersCount
         self.friendsCount = friendsCount
+        self.isFollowByUser = false
+    }
+    
+    init( id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , followersCount : Int , friendsCount : Int , isFollowByUser : Bool )
+    {
+           self.id = id
+           self.name = name
+           self.screenName = screenName
+           self.mail = mail
+           self.image = img
+           self.description = description
+           self.followersCount = followersCount
+           self.friendsCount = friendsCount
+           self.isFollowByUser = isFollowByUser
+    }
+    
+    func GetFollowByUser() ->Bool
+    {
+        return self.isFollowByUser
+    }
+    func getUID() -> String
+    {
+        return self.id!
     }
     
     func getName() -> String
