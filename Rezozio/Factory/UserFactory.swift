@@ -32,7 +32,7 @@ class UserFactory {
     {
        
             return [
-                  "id" : 0,
+                  "id" : "",
                   "name" : user.getName(),
                   "screen_name" : user.getName(),
                   "mail" : user.getMail(),
