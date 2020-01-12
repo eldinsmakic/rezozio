@@ -21,7 +21,6 @@ class ManageData {
     init()
     {
 
-        self.data = []
         self.db = Firestore.firestore()
         self.data = [TweetModel(username: "jean", userIdent: "@Jean" , tweet: "Right now, Hello world to everry one.", img: #imageLiteral(resourceName: "ImgProfile1") ),TweetModel(username: "carlos",userIdent: "@Carlos" , tweet: "Right now, lets explain what happens in the code above. Lets drink.", img: #imageLiteral(resourceName: "imgProfile2") ) , TweetModel(username: "Artos",userIdent: "@Artos" , tweet: "I love you the more in that I believe you had liked me for my own sake and for nothing else ", img: #imageLiteral(resourceName: "imgProfile3") )]
     }
@@ -108,9 +107,35 @@ class ManageData {
                             }
                             seal.fulfill(result)
                         }
-                        
                 }
             }
+        }
+    }
+    
+    //Follow a new user
+    func addOrRemoveUserFollow(uid : String)
+    {
+        async {
+            var user_follow : [String] = try! await(self.getUserFolows())
+            if (user_follow.contains(uid) )
+            {
+                user_follow.remove(at: user_follow.firstIndex(of: uid)!)
+            }
+            else
+            {
+                user_follow.append(uid)
+            }
+               let user_uid = Auth.auth().currentUser!.uid
+               self.db.collection("follow").document(user_uid).setData(["follows" : user_follow , "userId" : ""]){
+                   err in
+                   if let err = err {
+                      print(err)
+                   }
+                   else
+                   {
+                       print("succes")
+                   }
+               }
         }
     }
     
