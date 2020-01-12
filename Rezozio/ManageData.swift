@@ -271,19 +271,21 @@ class ManageData {
     
     
     // Add new tweet to database
-    func AddTweet(data : [String : Any]) -> Promise<Bool>
+    func AddTweet(data : [String : Any]) -> Promise<String>
     {
-        return Promise<Bool>
+        return Promise<String>
             {
                 seal in
-                db.collection("tweets").document().setData(data)
+                
+                let ref = db.collection("tweets").document()
+                ref.setData(data)
                 {
                     Error in
                     if (Error != nil)
                     {
                         seal.reject(Error!)
                     }
-                    seal.fulfill(true)
+                    seal.fulfill(ref.documentID)
                     
                 }
             }
