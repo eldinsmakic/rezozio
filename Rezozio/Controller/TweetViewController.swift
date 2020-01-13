@@ -62,9 +62,9 @@ class TweetViewController: UIViewController, UITextFieldDelegate {
     {
         async {
             let user : UserModel = try! await(self.manageData.getUserInfoAsync())
-            let data = TweetFactory.factory.createDataForNewTweet(text: text, user: user)
-            let result = try! await(self.manageData.AddTweet(data: data))
-            if ( result == true)
+            let data : [String :Any] = TweetFactory.factory.createDataForNewTweet(text: text, user: user)
+            let result :String = try! await(self.manageData.AddTweet(data: data))
+            if ( result != "" )
             {
                 self.manageData.addTweetToUser(tweetUID: result)
                 print("tweet send")
