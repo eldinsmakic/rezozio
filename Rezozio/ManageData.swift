@@ -123,6 +123,59 @@ class ManageData {
         }
     }
     
+    // return a array of all tweetID from all user that logged
+    // User follow
+    func getTweetsIDFromUserThatUserFollow() -> Promise<[String]>
+    {
+        var result : [String] = []
+        return Promise<[String]>
+        {
+            seal in
+                let userfollow = try! await(self.getUserFolows())
+                for user in userfollow
+                {
+                    let data = try! await(self.getTweetsArrayFromUser(user_uid: user))
+                    for tweetId in data
+                    {
+                        result.append(tweetId)
+                    }
+                    
+                }
+                seal.fulfill(result)
+        }
+        
+    }
+    
+    // return all tweets ID from an user
+    func getTweetsArrayFromUser( user_uid : String) -> Promise<[String]>
+    {
+        return Promise<[String]>
+            {
+                seal in
+                self.db.collection("tweetsId").document(user_uid).getDocument
+                    {
+                        (document , error) in
+                        if error != nil
+                        {
+                            seal.reject(error!)
+                        }
+                        else
+                        {
+                            if (document!.exists)
+                            {
+                                let data = document!.data()
+                                seal.fulfill(data!["tweetsId"] as! [String])
+                            }
+                            else
+                            {
+                                seal.fulfill([])
+                            }
+                        }
+                    }
+                
+            }
+    }
+    
     
     
     // Get all user that can be follow by the app user
