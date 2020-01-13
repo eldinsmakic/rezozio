@@ -66,6 +66,7 @@ class TweetViewController: UIViewController, UITextFieldDelegate {
             let result = try! await(self.manageData.AddTweet(data: data))
             if ( result == true)
             {
+                self.manageData.addTweetToUser(tweetUID: result)
                 print("tweet send")
             }
             else
