@@ -281,6 +281,35 @@ class ManageData {
 
     
     
+    // return user info
+    func getUserInfoAsync() -> Promise<UserModel>
+    {
+           
+            return Promise<UserModel>
+                {
+                    seal in
+                           let uid = Auth.auth().currentUser!.uid
+                           db.collection("utilisateurs").document(uid).getDocument
+                           {
+                                (document, Error) in
+                                       if let document =  document , document.exists
+                                       {
+                                        let res = document.data()
+                                        let user = UserModel(id: uid, name: res!["name"] as! String, screenName: res!["screen_name"] as! String, mail : res!["mail"]  as! String , description: res!["description"] as! String, img: #imageLiteral(resourceName: "ImgProfile1"), followersCount: res!["followers_count"] as! Int, friendsCount: res!["friends_count"] as! Int )
+                                         seal.fulfill(user)
+                                           
+                                       }
+                                      else
+                                       {
+                                        print(Error.debugDescription)
+                                            seal.reject(Error!)
+                                       }
+                                        
+                           }
+              }
+    }
+    
+    
     // Add new tweet to database
     func AddTweet(data : [String : Any]) -> Promise<String>
     {
