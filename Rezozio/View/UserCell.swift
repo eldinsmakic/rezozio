@@ -101,16 +101,42 @@ class UserCell : UICollectionViewCell
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupButtonToUnfollow()
+    {
+        followButton.backgroundColor = .cyan
+        followButton.setTitleColor(UIColor(red: 255, green: 255, blue: 250, alpha: 1), for: .normal)
+        followButton.setTitle("Unfollow", for: .normal)
+    }
+    
+    private func setupButtonToFollow()
+    {
+        followButton.backgroundColor = .white
+        followButton.setTitleColor(UIColor(cgColor: CGColor(srgbRed: 0, green: 255, blue: 255, alpha: 1)), for: .normal )
+        followButton.setTitle("Follow", for: .normal)
+    }
     
     func changeTitleFollowButton()
     {
+        
         if followButton.titleLabel!.text == "Follow"
         {
-            followButton.setTitle("Unfollow", for: .normal)
+            self.setupButtonToUnfollow()
         }
         else
         {
-            followButton.setTitle("Follow", for: .normal)
+            self.setupButtonToFollow()
+        }
+    }
+    
+    func initFollowButton()
+    {
+        if (userModel?.GetFollowByUser() == true)
+        {
+            self.setupButtonToUnfollow()
+        }
+        else
+        {
+            self.setupButtonToFollow()
         }
     }
     
@@ -125,11 +151,7 @@ class UserCell : UICollectionViewCell
         
         userBioTextView.text = userModel?.getDescription()
         
-        if (userModel?.GetFollowByUser() == true)
-        {
-            followButton.setTitle("Unfollow", for: .normal)
-        }
-        
+        self.initFollowButton()
         
     }
     
