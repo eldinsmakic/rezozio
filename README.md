@@ -18,18 +18,23 @@ using PromiseKit and AwaitKit for fetching data async
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
+
+* Create PodFile
+    `pod init`
+
+* Add Dependencies in the Podfile
+    ` pod 'Firebase/Core'
+       pod 'Firebase/Database'
+       pod 'Firebase/Auth'
+       pod 'Firebase/Firestore'
+       pod 'AwaitKit', '~> 5.2.0'
+       pod 'PromiseKit', '~> 6.8'
+    ` 
  * Download And Install required Package in your pod file
-   ` pod 'Firebase/Core'
-    pod 'Firebase/Database'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Firestore'
-    pod 'AwaitKit', '~> 5.2.0'
-    pod "PromiseKit", "~> 6.8" ` 
-    
-    then launch 
     
     `pod install`
- 
+
+
 ### Installing
 
 After installing all package, just open the Rezozio.xcworkspace with xcode 
