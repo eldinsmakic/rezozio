@@ -29,6 +29,8 @@ class TweetCell : UICollectionViewCell
     
     override init(frame: CGRect) {
        super.init(frame : frame)
+       self.setupBorder()
+        
        userLabel = UILabel()
        userLabel.font = UIFont.boldSystemFont(ofSize: 16)
        userLabel.translatesAutoresizingMaskIntoConstraints = false
