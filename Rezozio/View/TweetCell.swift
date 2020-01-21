@@ -84,6 +84,13 @@ class TweetCell : UICollectionViewCell
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupBorder()
+    {
+        self.contentView.layer.borderWidth = 1
+        self.contentView.layer.borderColor = .init(srgbRed: 10, green: 10, blue: 10, alpha: 1)
+        self.contentView.layer.cornerRadius = 5
+    }
+    
     func showLandmark() {
         
         userLabel.text = tweetModel?.username
