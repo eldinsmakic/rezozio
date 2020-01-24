@@ -101,7 +101,6 @@ class ManageData {
     func getTweetsOrdByTime() -> Promise<[TweetModel]>
     {
         var result : [TweetModel] = []
-        let tweetFollow = try! await(self.getTweetsIDFromUserThatLoggedUserFollow())
         return Promise<[TweetModel]>
         {
             seal in
@@ -113,11 +112,8 @@ class ManageData {
                         for data in document.documents
                             {
                                 let curData = data.data()
-                                if (tweetFollow.contains(data.documentID))
-                                {
-                                    result.append(TweetFactory.factory.createTweetFromData(data: curData))
-                                }
-                                
+                                result.append(TweetFactory.factory.createTweetFromData(data: curData))
+
                             }
                         seal.fulfill(result)
                     }
@@ -148,7 +144,7 @@ class ManageData {
     func getTweetsOrdByTimeAndFollowByLoggedUser() -> Promise<[TweetModel]>
     {
         var result : [TweetModel] = []
-        let follow = try! await(self.getLoggedUserFolows())
+        let tweetFollow = try! await(self.getTweetsIDFromUserThatLoggedUserFollow())
         return Promise<[TweetModel]>
         {
             seal in
@@ -159,8 +155,11 @@ class ManageData {
                     {
                         for data in document.documents
                             {
-                                let curData = data.data()
-                                result.append(TweetFactory.factory.createTweetFromData(data: curData))
+                               let curData = data.data()
+                               if (tweetFollow.contains(data.documentID))
+                                {
+                                    result.append(TweetFactory.factory.createTweetFromData(data: curData))
+                                }
                             }
                         seal.fulfill(result)
                     }
