@@ -73,6 +73,7 @@ class ManageData {
     func getTweetsOrdByTime() -> Promise<[TweetModel]>
     {
         var result : [TweetModel] = []
+        let tweetFollow = try! await(self.getTweetsIDFromUserThatUserFollow())
         return Promise<[TweetModel]>
         {
             seal in
@@ -84,7 +85,11 @@ class ManageData {
                         for data in document.documents
                             {
                                 let curData = data.data()
-                                result.append(TweetFactory.factory.createTweetFromData(data: curData))
+                                if (tweetFollow.contains(data.documentID))
+                                {
+                                    result.append(TweetFactory.factory.createTweetFromData(data: curData))
+                                }
+                                
                             }
                         seal.fulfill(result)
                     }
