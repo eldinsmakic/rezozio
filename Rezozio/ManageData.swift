@@ -131,7 +131,8 @@ class ManageData {
         return Promise<[String]>
         {
             seal in
-                let userfollow = try! await(self.getUserFolows())
+            var userfollow = try! await(self.getUserFolows())
+            userfollow.append(self.uid)
                 for user in userfollow
                 {
                     let data = try! await(self.getTweetsArrayFromUser(user_uid: user))
