@@ -42,9 +42,7 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     func fetchTweet()
     {
         async {
-            let test = try! await(self.managerData.getTweetsIDFromUserThatLoggedUserFollow())
-            print(test)
-            let res = try! await(self.managerData.getTweetsOrdByTime())
+            let res = try! await(self.managerData.getTweetsOrdByTimeAndFollowByLoggedUser())
             self.data = res
             DispatchQueue.main.async {
                  self.collectionView.reloadData()
