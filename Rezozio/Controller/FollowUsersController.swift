@@ -113,11 +113,10 @@ class FollowUsersController: UICollectionViewController , UICollectionViewDelega
         
         @objc func followButtonOnClick(_  sender : UIButton)
         {
-            
             let cell = sender.superview?.superview as! UserCell
             let user = cell.userModel!
             cell.changeTitleFollowButton()
-            self.managerData.addOrRemoveUserFollow(uid: user.getUID() )
+            self.managerData.changeUserFollows(uid: user.getUID() )
             
         }
         

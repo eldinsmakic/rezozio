@@ -25,7 +25,11 @@ class ManageData {
     }
     
     
-    // Try to add New user to the database
+    /**
+       Add new user to database (Firebase)
+     - parameter user : the username
+     - parameter email : user's email
+    */
     func addUserToDataBase(user : String , email : String ) -> Bool
     {
         var result : Bool = true
@@ -41,7 +45,20 @@ class ManageData {
     }
     
     
-    // Return All tweet in database
+    /**
+        Get All tweet in database,
+        # Notes: #
+         1. Tweets are return in a promise, you need to await it to gets
+            array of tweets
+         2. Handle return with a try
+        # Example #
+         ```
+          let result = try! await(self.getTweets())
+          ```
+        
+        - returns : a promise of an Array of tweets
+         
+    */
     func getTweets() -> Promise<[TweetModel]>
     {
         var result : [TweetModel] = []
@@ -69,11 +86,22 @@ class ManageData {
     }
     
     
-    // Return All tweet in database
+    /**
+        Return All tweets order by time stored in database
+        # Notes: #
+         1. Tweets are return in a promise, you need to await it to gets
+            array of tweets
+         2. Handle return with a try
+        # Example #
+         ```
+          let result = try! await(self.getTweetsOrdByTime())
+          ```
+        - returns : Promise of an Array of Tweets
+    */
     func getTweetsOrdByTime() -> Promise<[TweetModel]>
     {
         var result : [TweetModel] = []
-        let tweetFollow = try! await(self.getTweetsIDFromUserThatUserFollow())
+        let tweetFollow = try! await(self.getTweetsIDFromUserThatLoggedUserFollow())
         return Promise<[TweetModel]>
         {
             seal in
@@ -101,10 +129,26 @@ class ManageData {
         }
     }
     
-    func getTweetsOrdByTimeAndFollowByUser() -> Promise<[TweetModel]>
+    /**
+        Return All tweets stored in database order by time and which were created by users followed by
+        logged user
+        # Notes: #
+         1. Tweets are return in a promise, you need to await it to gets
+            array of tweets
+         2. Handle return with a try
+        # Example #
+         ```
+          let result = try! await(self.getTweetsOrdByTimeAndFollowByLoggedUser())
+          ```
+         # Usages #
+         this function is use to get all tweets create by logged user and user that logged user follows
+          then  return all  tweets to help create logged user feed page
+        - returns : Promise of an Array of Tweets
+    */
+    func getTweetsOrdByTimeAndFollowByLoggedUser() -> Promise<[TweetModel]>
     {
         var result : [TweetModel] = []
-        let follow = try! await(self.getUserFolows())
+        let follow = try! await(self.getLoggedUserFolows())
         return Promise<[TweetModel]>
         {
             seal in
@@ -128,19 +172,33 @@ class ManageData {
         }
     }
     
-    // return a array of all tweetID from all user that logged
-    // User follow
-    func getTweetsIDFromUserThatUserFollow() -> Promise<[String]>
+    /**
+        Get all tweets'is id from all users followed by Logged user
+         
+        # Notes: #
+         1. Tweets are return in a promise, you need to await it to gets
+            array of tweets
+         2. Handle return with a try
+        # Example #
+         ```
+          let result = try! await(self.getTweetsIDFromUserThatLoggedUserFollow())
+          ```
+        # Usages #
+            this function is use to get all users follow by logged  user then get all the tweets id  of
+            user follow and return  a list of it. This list is use to create the feed page of logged User
+        - returns : Promise of an Array of Tweets Id
+    */
+    func getTweetsIDFromUserThatLoggedUserFollow() -> Promise<[String]>
     {
         var result : [String] = []
         return Promise<[String]>
         {
             seal in
-            var userfollow = try! await(self.getUserFolows())
+            var userfollow = try! await(self.getLoggedUserFolows())
             userfollow.append(self.uid)
                 for user in userfollow
                 {
-                    let data = try! await(self.getTweetsArrayFromUser(user_uid: user))
+                    let data = try! await(self.getTweetsIdFromUser(user_uid: user))
                     for tweetId in data
                     {
                         result.append(tweetId)
@@ -152,8 +210,28 @@ class ManageData {
         
     }
     
-    // return all tweets ID from an user
-    func getTweetsArrayFromUser( user_uid : String) -> Promise<[String]>
+    
+    
+    /**
+     
+    get tweets id from an user #user_uid
+        
+      - Parameter user_uid: the user to get tweets id
+     # Notes: #
+      1. Users are return in a promise, you need to await it to gets
+         array of tweets
+      2. Handle return with a try
+     # Example #
+      ```
+       let result = try! await(self.getTweetsIdFromUser(userB))
+       ```
+     # Usages #
+         this function is use to get all tweets id from an user,
+         use to create logged user feed page
+     
+    - returns : Promise of an Array of tweets id
+    */
+    private func getTweetsIdFromUser( user_uid : String) -> Promise<[String]>
     {
         return Promise<[String]>
             {
@@ -184,11 +262,26 @@ class ManageData {
     
     
     
-    // Get all user that can be follow by the app user
+    /**
+        Get all users from database except logged user
+         and return a list of users
+        # Notes: #
+         1. Users are return in a promise, you need to await it to gets
+            array of tweets
+         2. Handle return with a try
+        # Example #
+         ```
+          let result = try! await(self.getUsers())
+          ```
+        # Usages #
+            this function is use to get all users except logged user, will help to create
+            the user list page, where logged user can follow or  unfollow user
+        - returns : Promise of an Array of users
+    */
     func getUsers() -> Promise<[UserModel]>
     {
         let uid = Auth.auth().currentUser!.uid
-        let followedUser = try! await(self.getUserFolows())
+        let followedUser = try! await(self.getLoggedUserFolows())
         var result : [UserModel] =  []
         var isFollow = false
         return Promise<[UserModel]>
@@ -226,11 +319,16 @@ class ManageData {
         }
     }
     
-    //Follow a new user
-    func addOrRemoveUserFollow(uid : String)
+    /**
+        Add or remove a user's follow depending if user is already follow or  not
+         - parameter uid : the user to follow or unfollow
+        # Usages #
+        this function is use to follow or unfollow user by the logged user
+    */
+    func changeUserFollows(uid : String)
     {
         async {
-            var user_follow : [String] = try! await(self.getUserFolows())
+            var user_follow : [String] = try! await(self.getLoggedUserFolows())
             if (user_follow.contains(uid) )
             {
                 user_follow.remove(at: user_follow.firstIndex(of: uid)!)
@@ -253,8 +351,22 @@ class ManageData {
         }
     }
     
-    // Get all user followed by logged user
-    func getUserFolows() -> Promise<[String]>
+     /**
+           Get all users that are followed by logged user
+           and return a list of users id
+           # Notes: #
+            1. Users uid  are return in a promise, you need to await it to gets
+               array of tweets
+            2. Handle return with a try
+           # Example #
+            ```
+             let result = try! await(self.getLoggedUserFolows())
+             ```
+           # Usages #
+               this function is use to get all users that are follow by logged user
+           - returns : Promise of an Array of user id
+       */
+    func getLoggedUserFolows() -> Promise<[String]>
     {
         let uid = Auth.auth().currentUser!.uid
         return Promise<[String]>
@@ -287,8 +399,20 @@ class ManageData {
 
     
     
-    // return user info
-    func getUserInfoAsync() -> Promise<UserModel>
+     /**
+              Get info of logged user and return a user object
+              
+              # Notes: #
+               1. User is return in a promise, you need to await it to get
+                  user
+               2. Handle return with a try
+              # Example #
+               ```
+                let result = try! await(self.getUserInfoAsync())
+                ```
+              - returns : Promise of an Array of user
+          */
+    func getLoggedUserInfoAsync() -> Promise<UserModel>
     {
            
             return Promise<UserModel>
@@ -316,7 +440,20 @@ class ManageData {
     }
     
     
-    // Add new tweet to database
+    /**
+        Add Tweet to database and return the Tweet uid
+        # Notes: #
+         1. Tweet id is return in a promise, you need to await it to get it
+         2. Handle return with a try
+        # Example #
+         ```
+          let tweetId = try! await(self.AddTweet())
+          ```
+        # Usages #
+            this function is use to save tweet to database and get tweet id to use it
+          and add it to user's tweet id list
+        - returns : Promise of a tweet id
+    */
     func AddTweet(data : [String : Any]) -> Promise<String>
     {
         return Promise<String>
@@ -338,8 +475,19 @@ class ManageData {
             }
     }
     
-    // add a tweet id to the user list tweet id
-    func addTweetToUser( tweetUID : String)
+     /**
+           Add Tweet to user's tweet id list
+           
+           # Example #
+            ```
+             let tweetId = try! await(self.AddTweet())
+             self.addTweetToLoggedUser(tweetId)
+             ```
+           # Usages #
+               this function is use to save tweet id to  user's  tweet id list,
+               this list help to retrieve all tweet of an user
+       */
+    func addTweetToLoggedUser( tweetUID : String)
     {
         var tweetId = try! await(self.getUserTweetId())
         tweetId.append(tweetUID)
@@ -357,8 +505,23 @@ class ManageData {
         }
     }
     
-    // return an ilist of all user tweet's Id
-    func getUserTweetId() -> Promise<[String]>
+    /**
+     Get Logger User Tweets Id and return an array of it
+     # Notes: #
+     1. Tweet id is return in a promise, you need to await it to get it
+     2. Handle return with a try
+     # Example #
+     ```
+     var tweetId = try! await(self.getUserTweetId())
+     tweetId.append(tweetUID)
+     // then upload new array to database
+     ```
+     # Usages #
+     this function is get all tweet id from logged user, and add/delete a tweet id with addTweetToUser()
+      
+     - returns : Promise of a tweet id
+     */
+    private func getUserTweetId() -> Promise<[String]>
     {
         
         return Promise<[String]>
