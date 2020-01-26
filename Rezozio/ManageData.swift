@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 import AwaitKit
 import PromiseKit
 
@@ -16,11 +17,14 @@ import PromiseKit
 class ManageData {
     
     private let db : Firestore
+    private let storage : Storage
     private let uid : String
+    
     init()
     {
 
         self.db = Firestore.firestore()
+        self.storage = Storage.storage()
         self.uid = Auth.auth().currentUser!.uid
     }
     
@@ -501,6 +505,49 @@ class ManageData {
             {
                 print("Tweet Added To TWeetsID")
             }
+        }
+    }
+    
+    
+    ///  Get profile photo of an user ```user_uid ```
+    ///
+    /// - Parameter user_uid: user_uid to get profile photo
+    /// - returns : a promise an image
+    func getUserProfilePhoto( user_uid: String) -> Promise<UIImage>
+    {
+        return Promise<UIImage>
+        {
+            seal in
+            db.collection("utilisateurs").document(user_uid).getDocument
+            {
+                (document, error) in
+                                if error != nil
+                                {
+                                    print("can't fetch profile picture")
+                                    seal.reject(error!)
+                                }
+                                else
+                                {
+                                    if (document!.exists)
+                                    {
+                                        print("Tring to fetch profile image")
+                                        let data = document?.data()
+                                        let url =  data!["profile_image"] as! String
+                                        print("the main url is \(url) ")
+                                        let ref = self.storage.reference(forURL: url)
+                                        ref.downloadURL
+                                        {
+                                            (URL, Error) in
+                                            print("en cours")
+                                            let data = NSData(contentsOf: URL!)
+                                            let image = UIImage(data: data! as Data)!
+                                            print("reussite de la photo")
+                                            seal.fulfill(image)
+                                        }
+                                    }
+                                }
+            }
+            
         }
     }
     
