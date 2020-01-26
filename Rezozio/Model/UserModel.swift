@@ -50,6 +50,11 @@ class UserModel
            self.isFollowByUser = isFollowByUser
     }
     
+    public func setImage(image :UIImage)
+    {
+        self.image = image
+    }
+    
     func GetFollowByUser() ->Bool
     {
         return self.isFollowByUser
