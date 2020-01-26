@@ -19,9 +19,11 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     private let  footerId = "footerId"
     private var managerData : ManageData
     private var data : [TweetModel] = []
+    private var imageCache : NSCache<NSString, UIImage>
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         self.managerData = ManageData()
+        self.imageCache = NSCache<NSString, UIImage>()
         super.init(collectionViewLayout: layout)
         
     }
@@ -44,9 +46,42 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
         async {
             let res = try! await(self.managerData.getTweetsOrdByTimeAndFollowByLoggedUser())
             self.data = res
+            
+            self.setupImages()
+            
             DispatchQueue.main.async {
                  self.collectionView.reloadData()
             }
+        }
+    }
+    
+    
+    /// add images to tweets
+    /// using cache to help to reduce request time
+    func setupImages()
+    {
+        async {
+                let start = Date()
+                for data in self.data
+                {
+                    let uid = data.userUID!
+                    if let image = self.imageCache.object(forKey: uid as NSString) as? UIImage {
+                        data.setImage(image: image)
+                    }
+                    else
+                    {
+                        let image = try! await(self.managerData.getUserProfilePhoto(user_uid: uid))
+                        self.imageCache.setObject(image, forKey: uid as NSString)
+                        data.setImage(image: image)
+                    }
+                    
+                }
+                 DispatchQueue.main.async {
+                 self.collectionView.reloadData()
+                let finish = Date()
+                print("Time lapsed \(finish.timeIntervalSince(start))")
+            }
+             
         }
     }
     
