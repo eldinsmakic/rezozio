@@ -20,7 +20,7 @@ class TweetFactory
     public func createTweetFromData(data : [String : Any]) -> TweetModel
     {
         let user = data["user"] as! [String : Any]
-        return TweetModel(username: user["name"] as! String, userIdent: user["screen_name"] as! String, tweet: data["text"] as! String, img: #imageLiteral(resourceName: "ImgProfile1"))
+        return TweetModel(username: user["name"] as! String, userUID: user["id"] as! String, userIdent: user["screen_name"] as! String, tweet: data["text"] as! String, img: #imageLiteral(resourceName: "ImgProfile1"), userImageLink: user["image"] as! String)
     }
     
     public func createDataForNewTweet(text : String , user : UserModel) -> [String : Any]
