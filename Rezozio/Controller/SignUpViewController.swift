@@ -17,6 +17,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var bird1: UIImageView!
+    @IBOutlet weak var bird2: UIImageView!
+    @IBOutlet weak var bird3: UIImageView!
+    @IBOutlet weak var bird4: UIImageView!
     
     private var firestore: Firestore!
     private var manageData : ManageData!
