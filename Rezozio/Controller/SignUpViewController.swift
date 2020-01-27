@@ -33,9 +33,51 @@ class SignUpViewController: UIViewController {
         addPrefixMailAndPassword()
         self.firestore = Firestore.firestore()
         self.manageData =  ManageData()
+        self.animAllBirds()
+        self.animShakeSignUp()
+        
         // Do any additional setup after loading the view.
     }
     
+    /**
+             Make the SignUp button shake
+     */
+    func animShakeSignUp()
+    {
+        UIView.animate(withDuration: 0.2, delay: 15, options: [.repeat, .autoreverse] , animations: {
+            self.signUpButton.layer.position.x += 2
+        }, completion: nil)
+    }
+    
+    /***
+     Make all birds animate from left to right
+     flying and disappear */
+    func animAllBirds()
+    {
+        self.animBird(bird:self.bird1)
+        self.animBird(bird:self.bird2, delay : 0.5)
+        self.animBird(bird:self.bird3, delay : 1.0)
+        self.animBird(bird:self.bird4, delay : 1.5)
+        
+    }
+    
+    
+     ///   Make a bird Bird animate from left to right
+     ///   flying and disappear
+         
+    ///    - parameter bird: bird to animate
+    ///    - parameter delay : delay to make animation start after a certain time (by default = 0)
+    func animBird(bird: UIImageView, delay : TimeInterval = 0 )
+    {
+         UIView.animate(withDuration: 2.0 ,delay: delay , animations: {
+            bird.layer.position.x += self.view.bounds.width + bird.bounds.width
+               },completion: { (Bool) in
+                bird.layer.position.x = 0 - bird.bounds.width
+                UIView.animate(withDuration: 3.0 , delay: 0, options: [.repeat], animations: {
+                    bird.layer.position.x += self.view.bounds.width + (bird.bounds.width * 2)
+            }, completion: nil)
+        })
+    }
     
     /*
         OnClick on SignUp Button, check if
