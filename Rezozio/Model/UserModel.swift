@@ -19,18 +19,20 @@ class UserModel
     private var screenName: String?
     private var mail: String?
     private var image: UIImage?
+    private var imageLink: String?
     private var description: String?
     private var followersCount : Int
     private var friendsCount : Int
     private var isFollowByUser : Bool
     
-    init( id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , followersCount : Int , friendsCount : Int )
+    init( id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , imageLink: String, followersCount : Int , friendsCount : Int )
     {
         self.id = id
         self.name = name
         self.screenName = screenName
         self.mail = mail
         self.image = img
+        self.imageLink = imageLink
         self.description = description
         self.followersCount = followersCount
         self.friendsCount = friendsCount
@@ -59,6 +61,7 @@ class UserModel
     {
         return self.isFollowByUser
     }
+    
     func getUID() -> String
     {
         return self.id!
@@ -77,6 +80,11 @@ class UserModel
     func getDescription() -> String
     {
         return self.description!
+    }
+    
+    func getImageLink() -> String
+    {
+        return self.imageLink!
     }
     
     func getImage() -> UIImage
