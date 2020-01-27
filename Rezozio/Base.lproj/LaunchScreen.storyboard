@@ -18,37 +18,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUpBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="eTZ-Kh-ARS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3gg-GA-BFf">
-                                <rect key="frame" x="67.666666666666686" y="217" width="240" height="130"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b8r-ba-ygm">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="FAc-AX-h9A"/>
-                                            <constraint firstAttribute="width" constant="240" id="dkQ-tO-SxS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whE-O8-mTg">
-                                        <rect key="frame" x="0.0" y="45" width="240" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="HSX-ar-nJ4"/>
-                                            <constraint firstAttribute="height" constant="40" id="Ojy-Cp-hBG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iva-cN-YKM">
-                                        <rect key="frame" x="0.0" y="90" width="240" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Brc-mz-IHJ"/>
-                                            <constraint firstAttribute="width" constant="240" id="ulX-AA-t8E"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeBar" translatesAutoresizingMaskIntoConstraints="NO" id="12O-s6-cRe">
+                                <rect key="frame" x="58" y="266" width="157" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeBar" translatesAutoresizingMaskIntoConstraints="NO" id="aX4-77-XIR">
+                                <rect key="frame" x="176" y="366" width="157" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeBar" translatesAutoresizingMaskIntoConstraints="NO" id="STo-9Z-Liv">
+                                <rect key="frame" x="-38" y="379" width="196" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3gg-GA-BFf">
+                                <rect key="frame" x="58" y="721" width="240" height="40"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru2-Hf-mRE">
                                 <rect key="frame" x="67.666666666666686" y="527" width="240" height="40"/>
@@ -90,14 +73,32 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rezozio" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lk2-U6-qQo">
+                                <rect key="frame" x="87.666666666666686" y="151" width="200" height="78"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ReV-6q-fUj"/>
+                                    <constraint firstAttribute="height" constant="78" id="eTn-qX-28x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="41"/>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="highlightedColor" systemColor="quaternaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="11" height="8"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeBar" translatesAutoresizingMaskIntoConstraints="NO" id="GeC-fa-fvb">
+                                <rect key="frame" x="210" y="200" width="112" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hQ6-cg-6lL" firstAttribute="top" secondItem="ru2-Hf-mRE" secondAttribute="bottom" constant="67" id="0sk-8G-rif"/>
                             <constraint firstItem="eTZ-Kh-ARS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3dl-OM-jQQ"/>
+                            <constraint firstItem="lk2-U6-qQo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7lu-gv-eWg"/>
                             <constraint firstAttribute="bottom" secondItem="eTZ-Kh-ARS" secondAttribute="bottom" id="9W7-sm-F9a"/>
                             <constraint firstItem="eTZ-Kh-ARS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CbG-UJ-EPC"/>
                             <constraint firstItem="jBr-z5-DbN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cxb-H3-Mnh"/>
+                            <constraint firstItem="lk2-U6-qQo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="KQM-Oj-Y5o"/>
                             <constraint firstItem="3gg-GA-BFf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="NYD-1u-Cf1"/>
                             <constraint firstItem="ru2-Hf-mRE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WDL-Tj-1qw"/>
                             <constraint firstItem="eTZ-Kh-ARS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ccX-9c-n1j"/>
@@ -110,11 +111,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="MLs-SE-k1r"/>
                     <connections>
-                        <outlet property="emailTextField" destination="iva-cN-YKM" id="ees-i3-Q6L"/>
+                        <outlet property="bird1" destination="GeC-fa-fvb" id="TDX-lM-uKx"/>
+                        <outlet property="bird2" destination="12O-s6-cRe" id="2Ku-aH-Wkd"/>
+                        <outlet property="bird3" destination="aX4-77-XIR" id="yjI-oB-gy3"/>
+                        <outlet property="bird4" destination="STo-9Z-Liv" id="Lji-Wc-iqs"/>
                         <outlet property="loginButton" destination="hQ6-cg-6lL" id="GQd-PU-vti"/>
-                        <outlet property="passwordTextField" destination="whE-O8-mTg" id="eef-N4-rPL"/>
                         <outlet property="signUpButton" destination="ru2-Hf-mRE" id="Ibc-qv-rZR"/>
-                        <outlet property="usernameTextField" destination="b8r-ba-ygm" id="uEG-Wx-hBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,6 +143,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HomeBar" width="1200" height="976"/>
         <image name="SignUpBackGround" width="1205" height="2609"/>
     </resources>
 </document>
