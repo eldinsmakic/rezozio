@@ -29,8 +29,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addRoundedCornerToButton()
-        addRoundedCornerToTextView()
-        addPrefixMailAndPassword()
+//        addRoundedCornerToTextView()
+//        addPrefixMailAndPassword()
         self.firestore = Firestore.firestore()
         self.manageData =  ManageData()
         self.animAllBirds()
