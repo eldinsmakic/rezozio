@@ -39,7 +39,7 @@ class UserModel
         self.isFollowByUser = false
     }
     
-    init( id: String , name : String , screenName : String , mail : String , description : String, img : UIImage , followersCount : Int , friendsCount : Int , isFollowByUser : Bool )
+    init( id: String , name : String , screenName : String , mail : String , description : String, img : UIImage ,  imageLink: String, followersCount : Int , friendsCount : Int , isFollowByUser : Bool )
     {
            self.id = id
            self.name = name
@@ -47,6 +47,7 @@ class UserModel
            self.mail = mail
            self.image = img
            self.description = description
+         self.imageLink = imageLink
            self.followersCount = followersCount
            self.friendsCount = friendsCount
            self.isFollowByUser = isFollowByUser

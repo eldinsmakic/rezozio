@@ -43,7 +43,7 @@ class FollowUsersController: UICollectionViewController , UICollectionViewDelega
             self.data = data
             for data in self.data
             {
-                let image = try! await(self.managerData.getUserProfilePhoto(user_uid: data.getImageLink()))
+                let image = try! await(self.managerData.getUserProfilePhotoWithUrl(user_url:  data.getImageLink()))
                 data.setImage(image: image)
             }
             DispatchQueue.main.async {
