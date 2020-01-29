@@ -167,9 +167,13 @@ class ManageData {
                             }
                         seal.fulfill(result)
                     }
-                    else
+                    else if (Error != nil)
                     {
                         seal.reject(Error!)
+                    }
+                    else
+                    {
+                        seal.fulfill(result)
                     }
             }
         }
@@ -427,8 +431,8 @@ class ManageData {
                                 (document, Error) in
                                        if let document =  document , document.exists
                                        {
-                                        let res = document.data()
-                                        let user = UserModel(id: uid, name: res!["name"] as! String, screenName: res!["screen_name"] as! String, mail : res!["mail"]  as! String , description: res!["description"] as! String, img: #imageLiteral(resourceName: "ImgProfile1"), followersCount: res!["followers_count"] as! Int, friendsCount: res!["friends_count"] as! Int )
+                                        let res = document.data()!
+                                        let user = UserFactory.factory.createUserFromData(data: res)!
                                          seal.fulfill(user)
                                            
                                        }
@@ -550,6 +554,31 @@ class ManageData {
             
         }
     }
+    
+   ///  Get profile photo of an user with his ```user url ```
+   ///
+   /// - Parameter user_url: the url to get the picture
+   /// - returns : a promise of an image
+    func getUserProfilePhotoWithUrl(  user_url url: String) -> Promise<UIImage>
+       {
+           return Promise<UIImage>
+           {
+                seal in
+                           print("Tring to fetch profile image")
+                           print("the main url is \(url) ")
+                           let ref = self.storage.reference(forURL: url)
+                           ref.downloadURL
+                           {
+                               (URL, Error) in
+                               print("en cours")
+                               let data = NSData(contentsOf: URL!)
+                               let image = UIImage(data: data! as Data)!
+                               print("reussite de la photo")
+                               seal.fulfill(image)
+                           }
+
+           }
+       }
     
     /**
      Get Logger User Tweets Id and return an array of it

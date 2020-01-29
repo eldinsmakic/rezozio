@@ -34,5 +34,10 @@ class TweetModel
         {
             self.image = image
         }
+    
+        public func getUserImageLink() -> String
+        {
+            return self.userImageLink!
+        }
 
 }

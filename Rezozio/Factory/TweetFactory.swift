@@ -32,7 +32,7 @@ class TweetFactory
                 ["id" : Auth.auth().currentUser!.uid ,
                 "name" : user.getName(),
                 "screen_name" : user.getScreenName(),
-                "image" :  ""],
+                "image" :  user.getImageLink()],
             "hashtags" : [],
             "user_mentions" : []
         ]

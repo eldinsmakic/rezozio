@@ -64,14 +64,14 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
                 let start = Date()
                 for data in self.data
                 {
-                    let uid = data.userUID!
-                    if let image = self.imageCache.object(forKey: uid as NSString) as? UIImage {
+                    let url = data.getUserImageLink()
+                    if let image = self.imageCache.object(forKey: url as NSString) as? UIImage {
                         data.setImage(image: image)
                     }
                     else
                     {
-                        let image = try! await(self.managerData.getUserProfilePhoto(user_uid: uid))
-                        self.imageCache.setObject(image, forKey: uid as NSString)
+                        let image = try! await(self.managerData.getUserProfilePhotoWithUrl(user_url: url))
+                        self.imageCache.setObject(image, forKey: url as NSString)
                         data.setImage(image: image)
                     }
                     
