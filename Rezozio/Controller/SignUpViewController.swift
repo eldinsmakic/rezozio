@@ -49,6 +49,17 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    func setIsLoginUp(bool :Bool)
+    {
+        self.isLogin = bool
+    }
+    
+    func setIsSignUp(bool : Bool)
+    {
+        self.isSignUp = bool
+    }
+    
 //// SETUP UI
     
     /// setup basic parameter
@@ -76,6 +87,26 @@ class SignUpViewController: UIViewController {
            signUpButton.layer.cornerRadius = 20
            loginButton.layer.cornerRadius = 20
     }
+    
+    func removeTargetCancelButtonFromSignup()
+    {
+        self.cancelButton.removeTarget(self, action: #selector(onCancelButtonSignUp), for: .touchUpInside)
+    }
+    
+    func addTargetCancelButtonForSignup()
+    {
+        self.cancelButton.addTarget(self, action: #selector(onCancelButtonSignUp), for: .touchUpInside)
+    }
+    
+    func addTargetCancelButtonForLogin()
+    {
+       self.cancelButton.addTarget(self, action: #selector(onCancelButtonLogin), for: .touchUpInside)
+    }
+    
+    func removeTargetCancelButtonForLogin()
+    {
+        self.cancelButton.removeTarget(self, action: #selector(onCancelButtonLogin), for: .touchUpInside)
+    }
 
 ////  ANIMATIONS
    
@@ -85,7 +116,7 @@ class SignUpViewController: UIViewController {
      */
     func animShakeSignUp()
     {
-        UIView.animate(withDuration: 0.2, delay: 15, options: [.repeat, .autoreverse] , animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.repeat, .autoreverse] , animations: {
             self.signUpButton.layer.position.x += 2
         }, completion: nil)
     }
@@ -93,6 +124,21 @@ class SignUpViewController: UIViewController {
     func hideTextFieldOnLoad()
     {
         self.allTextFieldStackView.isHidden = true
+    }
+    
+    func hideUserNameTextField()
+    {
+        UIView.animate(withDuration: 0.0 , delay: 0, options: [] , animations: {
+            self.usernameTextField.layer.position.x = 0 - self.usernameTextField.bounds.width
+        }, completion: nil)
+        
+    }
+    
+    func animShowUserNameTextField()
+    {
+        UIView.animate(withDuration: 0.0 , delay: 0, options: [] , animations: {
+            self.usernameTextField.layer.position.x = self.view.bounds.width / 2 - self.usernameTextField.bounds.width / 2
+        }, completion: nil)
     }
     
     /// show login Button after click on cancelButton
@@ -120,6 +166,13 @@ class SignUpViewController: UIViewController {
         }, completion: nil)
     }
     
+    func animHideLoginAndSubTextOnLeftSide()
+    {
+        UIView.animate(withDuration: 2.0 , delay: 0, options: [] , animations: {
+            self.labelAlreadyAnAccount.layer.position.x = 0 - self.labelAlreadyAnAccount.bounds.width
+        }, completion: nil)
+    }
+    
     func animHideLoginAndSubText()
     {
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [], animations: {
@@ -131,6 +184,20 @@ class SignUpViewController: UIViewController {
     {
         UIView.animate(withDuration: 2.0, delay: 0.0, options: [], animations: {
             view.layer.position.y = self.view.bounds.height + view.bounds.height
+        }, completion: nil)
+    }
+    
+    func animHideViewHorizontalyLeft(view : UIView)
+    {
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [], animations: {
+            view.layer.position.x = 0 - view.bounds.width
+        }, completion: nil)
+    }
+    
+    func animShowViewHorizantalyInCenter(view: UIView)
+    {
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [], animations: {
+            view.layer.position.x =  (self.view.bounds.width / 2 )
         }, completion: nil)
     }
     
@@ -149,6 +216,8 @@ class SignUpViewController: UIViewController {
             self.allTextFieldStackView.layer.position.y = 0 - self.allTextFieldStackView.bounds.height
         }, completion: nil)
     }
+    
+
     
     /***
      Make all birds animate from left to right
@@ -209,80 +278,92 @@ class SignUpViewController: UIViewController {
     
    
     
-    func chekOnSignUp()
-    {
-        var pass : Bool = true
-               if (isPasswordValid() == false)
-               {
-                  
-                       print("Bad password !")
-                       pass = false
-                  
-               }
-                if ( isEmailValid()  == false)
-               {
-                       print("Bad Email")
-                       pass = false
-               }
-               if (pass)
-               {
-                   let pw = passwordTextField.text!
-                   let email = emailTextField.text!
-                   let user  = usernameTextField.text!
-                   Auth.auth().createUser(withEmail: email, password: pw, completion:
-                  {
-                      (authResult,error) in
-                      if (error != nil)
-                      {
-                          print(error.debugDescription)
-                      }
-                      else
-                      {
-                        if (self.manageData.addUserToDataBase(user: user, email: email))
-                        {
-                           print("Succes")
-                        }
-                            
-                      }
-
-                   })
-               }
+    
+    @IBAction func OnClickLogin(_ sender: UIButton) {
+        
+        if (self.isLogin == false)
+        {
+            self.onNormalToLogin()
+        }
+        else
+        {
+            self.checkOnLogin()
+        }
+             
     }
     
     
-    @IBAction func OnClickLogin(_ sender: UIButton) {
-               var pass : Bool = true
-               if (isPasswordValid() == false)
-               {
+    func chekOnSignUp()
+    {
+        var pass : Bool = true
+        if (isPasswordValid() == false)
+        {
                   
-                       print("Bad password !")
-                       pass = false
+           self.animShakeSignUp()
+           pass = false
                   
-               }
-                if ( isEmailValid()  == false)
-               {
-                       print("Bad Email")
-                       pass = false
-               }
-                if (pass)
+        }
+        if ( isEmailValid()  == false)
+        {
+           pass = false
+        }
+       if (pass)
+       {
+           let pw = passwordTextField.text!
+           let email = emailTextField.text!
+           let user  = usernameTextField.text!
+           Auth.auth().createUser(withEmail: email, password: pw, completion:
+          {
+              (authResult,error) in
+              if (error != nil)
+              {
+                  print(error.debugDescription)
+              }
+              else
+              {
+                if (self.manageData.addUserToDataBase(user: user, email: email))
                 {
-                    let pw = passwordTextField.text!
-                    let email = emailTextField.text!
-                    Auth.auth().signIn(withEmail: email, password: pw, completion:
-                   {
-                       (auth,error) in
-                       if (error != nil)
-                       {
-                           print( error.debugDescription)
-                       }
-                       else
-                       {
-                        let mainVC = MainViewController( collectionViewLayout : UICollectionViewFlowLayout())
-                        self.navigationController?.pushViewController(mainVC, animated: true)
-                       }
-                   })
-            }
-               
+                   print("Succes")
+                }
+                    
+              }
+
+           })
+       }
+    }
+    
+    
+    func checkOnLogin()
+    {
+         var pass : Bool = true
+         if (isPasswordValid() == false)
+         {
+            self.animShakeSignUp()
+         }
+          if ( isEmailValid()  == false)
+         {
+                 print("Bad Email")
+                 pass = false
+         }
+          if (pass)
+          {
+              let pw = passwordTextField.text!
+              let email = emailTextField.text!
+              Auth.auth().signIn(withEmail: email, password: pw, completion:
+             {
+                 (auth,error) in
+                 if (error != nil)
+                 {
+                     print( error.debugDescription)
+                 }
+                 else
+                 {
+                  let mainVC = MainViewController( collectionViewLayout : UICollectionViewFlowLayout())
+                  self.navigationController?.pushViewController(mainVC, animated: true)
+                 }
+             })
+      }
+                     
     }
     
     @IBAction func onCancelButtonSignUp(_ sender: UIButton)
@@ -291,8 +372,21 @@ class SignUpViewController: UIViewController {
            self.animShowLoginButton()
            self.animShowLabelAlready()
            self.animHideCancelButton()
-           self.isSignUp = false
+           self.setIsSignUp(bool: false)
        }
+    
+    @IBAction func onCancelButtonLogin(_ sender: UIButton)
+    {
+        self.animShowLabelAlready()
+        self.animHideCancelButton()
+        self.setIsLoginUp(bool: false)
+        self.animShowUserNameTextField()
+        self.animHideTextField()
+        self.animShowViewHorizantalyInCenter(view: self.signUpButton)
+        self.animShowViewHorizantalyInCenter(view: self.labelAlreadyAnAccount)
+        self.removeTargetCancelButtonForLogin()
+        self.addTargetCancelButtonForLogin()
+    }
     
     func createCancelButton()
        {
@@ -308,12 +402,24 @@ class SignUpViewController: UIViewController {
        
     func onNormalToSignup()
        {
-           self.isSignUp = true
+           self.setIsSignUp(bool: true)
            self.animShowTextField()
            self.animHideViewVerticaly(view: self.loginButton)
            self.animHideViewVerticaly(view: self.labelAlreadyAnAccount)
            self.animShowCancelButton()
        }
+    
+    func onNormalToLogin()
+    {
+        self.setIsLoginUp(bool: true)
+        self.animHideViewHorizontalyLeft(view: self.labelAlreadyAnAccount)
+        self.animHideViewHorizontalyLeft(view: self.signUpButton)
+        self.hideUserNameTextField()
+        self.animShowTextField()
+        self.animShowCancelButton()
+        self.removeTargetCancelButtonFromSignup()
+        self.addTargetCancelButtonForLogin()
+    }
     
 /// CHECKING TEXTFIELD
     
@@ -342,6 +448,7 @@ class SignUpViewController: UIViewController {
     {
         return stringMatchesPattern(string: emailTextField.text!, pattern: "^[a-z0-9]+@[a-z0-9]+[.][a-z]+$")
     }
+    
     
     private func addRoundedCornerToTextView()
     {
