@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import PromiseKit
+import AwaitKit
 
 class TweetModel
 {
@@ -27,6 +29,8 @@ class TweetModel
             self.userUID = userUID
             self.userImageLink = userImageLink
             self.tweet = tweet
+
+            
         }
     
     
@@ -39,5 +43,7 @@ class TweetModel
         {
             return self.userImageLink!
         }
+    
+      
 
 }

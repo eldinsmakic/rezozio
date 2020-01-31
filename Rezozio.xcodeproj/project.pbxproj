@@ -21,6 +21,7 @@
 		997DFA8023C6387000F373D7 /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997DFA7F23C6387000F373D7 /* UserFactory.swift */; };
 		997DFA8223C6466B00F373D7 /* TweetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997DFA8123C6466B00F373D7 /* TweetFactory.swift */; };
 		999724AF23B2BD2E00ED570F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999724AE23B2BD2E00ED570F /* SignUpViewController.swift */; };
+		99BD615323E229C000E7D2A3 /* Changelog.md in Resources */ = {isa = PBXBuildFile; fileRef = 99BD615223E229C000E7D2A3 /* Changelog.md */; };
 		99DBB1C723B27962006404AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C623B27962006404AC /* AppDelegate.swift */; };
 		99DBB1C923B27962006404AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1C823B27962006404AC /* SceneDelegate.swift */; };
 		99DBB1CC23B27962006404AC /* Rezozio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99DBB1CA23B27962006404AC /* Rezozio.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 		997DFA7F23C6387000F373D7 /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		997DFA8123C6466B00F373D7 /* TweetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFactory.swift; sourceTree = "<group>"; };
 		999724AE23B2BD2E00ED570F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		99BD615223E229C000E7D2A3 /* Changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Changelog.md; sourceTree = "<group>"; };
 		99DBB1C323B27962006404AC /* Rezozio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rezozio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99DBB1C623B27962006404AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99DBB1C823B27962006404AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		99DBB1BA23B27962006404AC = {
 			isa = PBXGroup;
 			children = (
+				99BD615223E229C000E7D2A3 /* Changelog.md */,
 				9907DABA23D796B200E3C036 /* README.md */,
 				99DBB1C523B27962006404AC /* Rezozio */,
 				99DBB1DF23B27965006404AC /* RezozioTests */,
@@ -349,6 +352,7 @@
 				99DBB1FC23B2B6DE006404AC /* GoogleService-Info.plist in Resources */,
 				9907DABB23D796B200E3C036 /* README.md in Resources */,
 				99DBB1D023B27965006404AC /* Assets.xcassets in Resources */,
+				99BD615323E229C000E7D2A3 /* Changelog.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

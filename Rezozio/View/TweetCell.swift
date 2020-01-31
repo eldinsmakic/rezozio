@@ -11,6 +11,9 @@
 
 import Foundation
 import UIKit
+import AwaitKit
+import PromiseKit
+
 
 class TweetCell : UICollectionViewCell
 {
@@ -19,7 +22,8 @@ class TweetCell : UICollectionViewCell
     private var userIdentLabel : UILabel!
     private var profileImageView : UIImageView!
     private var tweetTextView : UITextView!
-
+    private var manageData : ManageData
+    public static var imageCache = NSCache<NSString, UIImage>()
     
     var tweetModel: TweetModel? {
         didSet {
@@ -28,9 +32,10 @@ class TweetCell : UICollectionViewCell
     }
     
     override init(frame: CGRect) {
+       self.manageData =  ManageData()
        super.init(frame : frame)
        self.setupBorder()
-        
+       
        userLabel = UILabel()
        userLabel.font = UIFont.boldSystemFont(ofSize: 16)
        userLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +108,29 @@ class TweetCell : UICollectionViewCell
         
         tweetTextView.text = tweetModel?.tweet
         
+        
     }
+    
+    func setupImage()
+          {
+              async {
+                let url = self.tweetModel!.getUserImageLink()
+                if let image = TweetCell.self.imageCache.object(forKey: url as NSString)  {
+                       DispatchQueue.main.async {
+                           self.profileImageView.image = image
+                       }                }
+                else
+                {
+                       let image = try! await(self.manageData.getUserProfilePhotoWithUrl(user_url: url))
+                       TweetCell.self.imageCache.setObject(image, forKey: url as NSString)
+                       DispatchQueue.main.async {
+                           self.profileImageView.image = image
+                       }
+                }
+
+              }
+              
+          }
     
     // Set a basic identifier name
        static var reuseIdentifier : String{

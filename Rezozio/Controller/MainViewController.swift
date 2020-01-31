@@ -46,9 +46,6 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
         async {
             let res = try! await(self.managerData.getTweetsOrdByTimeAndFollowByLoggedUser())
             self.data = res
-            
-            self.setupImages()
-            
             DispatchQueue.main.async {
                  self.collectionView.reloadData()
             }
@@ -169,6 +166,7 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.reuseIdentifier, for: indexPath) as! TweetCell
         cell.tweetModel = self.data[indexPath.item]
+        cell.setupImage()
         return cell
     }
     

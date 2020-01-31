@@ -564,18 +564,17 @@ class ManageData {
            return Promise<UIImage>
            {
                 seal in
-                           print("Tring to fetch profile image")
-                           print("the main url is \(url) ")
+//                           let start = Date()
                            let ref = self.storage.reference(forURL: url)
                            ref.downloadURL
                            {
                                (URL, Error) in
-                               print("en cours")
                                let data = NSData(contentsOf: URL!)
                                let image = UIImage(data: data! as Data)!
-                               print("reussite de la photo")
                                seal.fulfill(image)
                            }
+//                        let finish = Date()
+//                        print("Time lapsed in one calls\(finish.timeIntervalSince(start))")
 
            }
        }
