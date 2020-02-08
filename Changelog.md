@@ -6,8 +6,13 @@
   Copyright © 2020 eldin smakic. All rights reserved.
 */
 
+# Version  0.1.1
 
-Versions 0.1
+## Fixes:
+    - Reduce photo fetching time
+
+
+# Versions 0.1
 
 - can create new user
 - now can login
