@@ -3,14 +3,14 @@
     
 The Objective here is to recreate a basic tweeter in swift, 
 using Firebase to :
-        - connect
-        - store and collect data
-        - easy to configure and create data
-        - directly connect to the internet
+        * connect
+        * store and collect data
+        * easy to configure and create data
+        * directly connect to the internet
         
 using PromiseKit and AwaitKit for fetching data async
-        - can create cleaner async function 
-        - avoid the callback hell
+        * can create cleaner async function 
+        * avoid the callback hell
 
 
 ## Getting Started
