@@ -29,11 +29,9 @@ class ImageDownloader: Operation {
     
     guard let imageData = try? Data(contentsOf: photoRecord.url) else { return }
     
-    
     if isCancelled {
       return
     }
-    
     
     if !imageData.isEmpty {
       photoRecord.image = UIImage(data:imageData)

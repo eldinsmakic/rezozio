@@ -7,9 +7,7 @@
 //
 // Contains all basics utilities for a photo download
 
-
 import UIKit
-
 
 /// Show different state of a photo
 /// if its a new photo , download, failed to download.
@@ -33,7 +31,6 @@ class PhotoRecord
     }
 }
 
-
 /// Controls photo operations
 class PendingOperations
 {
@@ -44,7 +41,7 @@ class PendingOperations
     queue.maxConcurrentOperationCount = 1
     return queue
   }()
-  
+
   lazy var filtrationsInProgress: [IndexPath: Operation] = [:]
   lazy var filtrationQueue: OperationQueue = {
     var queue = OperationQueue()
