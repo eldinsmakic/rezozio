@@ -23,13 +23,13 @@ These instructions will get you a copy of the project up and running on your loc
     `pod init`
 
 * Add Dependencies in the Podfile
-    ` pod 'Firebase/Core'
-       pod 'Firebase/Database'
-       pod 'Firebase/Auth'
-       pod 'Firebase/Firestore'
-       pod 'Firebase/Storage'
-       pod 'AwaitKit', '~> 5.2.0'
-       pod 'PromiseKit', '~> 6.8'
+    `pod 'Firebase/Core'\
+       pod 'Firebase/Database'\
+       pod 'Firebase/Auth'\
+       pod 'Firebase/Firestore'\
+       pod 'Firebase/Storage'\
+       pod 'AwaitKit', '~> 5.2.0'\
+       pod 'PromiseKit', '~> 6.8'\
     ` 
  * Download And Install required Package in your pod file
     
