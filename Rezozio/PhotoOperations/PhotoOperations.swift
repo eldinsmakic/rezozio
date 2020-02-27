@@ -21,11 +21,11 @@ enum PhotoRecordState
 class PhotoRecord
 {
     let name: String
-    let url: URL
+    let url: String
     var state = PhotoRecordState.new
     var image = UIImage(named: "Placeholder")
     
-    init(name:String , url:URL) {
+    init(name:String , url:String) {
         self.name = name
         self.url = url
     }
@@ -38,7 +38,7 @@ class PendingOperations
   lazy var downloadQueue: OperationQueue = {
     var queue = OperationQueue()
     queue.name = "Download queue"
-    queue.maxConcurrentOperationCount = 1
+//    queue.maxConcurrentOperationCount = 1
     return queue
   }()
 
