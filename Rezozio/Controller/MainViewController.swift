@@ -61,11 +61,9 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
             self.photos.append(photoRecord)
         }
         
-        
         DispatchQueue.main.async {
-                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                  self.collectionView.reloadData()
-               }
+        }
     }
     
     func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath)
@@ -247,12 +245,10 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
             let photoDetails = photos[indexPath.item]
             switch (photoDetails.state) {
              case .failed:
-               print("Failed to load \(indexPath.item) ")
+                photos[indexPath.item].state = .failed
              case .new:
-               print("new Photo")
                startOperations(for: photoDetails, at: indexPath)
             case .filtered,.downloaded:
-                print("Setting Image")
                 tweetModel.image = photoDetails.image
             }
         }
