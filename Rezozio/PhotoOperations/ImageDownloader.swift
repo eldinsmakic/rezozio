@@ -7,16 +7,17 @@
 //
 
 import UIKit
-
+import AwaitKit
 /// Operation on Image
 /// Download Image and check for errors during download
 class ImageDownloader: Operation {
   
   let photoRecord: PhotoRecord
-  
+    let manageData: ManageData
   
   init(_ photoRecord: PhotoRecord) {
     self.photoRecord = photoRecord
+    self.manageData = ManageData()
   }
   
   
@@ -25,16 +26,15 @@ class ImageDownloader: Operation {
     if isCancelled {
       return
     }
-
-    
-    guard let imageData = try? Data(contentsOf: photoRecord.url) else { return }
+    let imageData = try?  await(self.manageData.getUserProfilePhotoWithUrl(user_url: self.photoRecord.url))
     
     if isCancelled {
       return
     }
     
-    if !imageData.isEmpty {
-      photoRecord.image = UIImage(data:imageData)
+    
+    if (imageData != nil){
+      photoRecord.image = imageData
       photoRecord.state = .downloaded
     } else {
       photoRecord.state = .failed
