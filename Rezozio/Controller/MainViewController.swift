@@ -20,6 +20,8 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     private var managerData : ManageData
     private var data : [TweetModel] = []
     private var imageCache : NSCache<NSString, UIImage>
+    var photos: [PhotoRecord] = []
+    let pendingOperations = PendingOperations()
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         self.managerData = ManageData()
@@ -34,11 +36,9 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchTweet()
         self.setupCells()
         self.setupNavigationBar()
-        print(Auth.auth().currentUser!.uid)
-         
+        self.fetchTweet()
     }
     
     func fetchTweet()
@@ -46,21 +46,72 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
         async {
             let res = try! await(self.managerData.getTweetsOrdByTimeAndFollowByLoggedUser())
             self.data = res
+            self.fetchPhotoDetails()
             DispatchQueue.main.async {
                  self.collectionView.reloadData()
             }
         }
     }
     
+    func fetchPhotoDetails()
+    {
+        for data in self.data {
+            let url  = data.getUserImageLink()
+            let photoRecord = PhotoRecord(name: "name", url: url)
+            self.photos.append(photoRecord)
+        }
+        
+        
+        DispatchQueue.main.async {
+                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                 self.collectionView.reloadData()
+               }
+    }
     
+    func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath)
+    {
+        startDownload(for: photoRecord, at: indexPath)
+    }
+    
+
+    func startDownload(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+      //1
+      guard pendingOperations.downloadsInProgress[indexPath] == nil else {
+        return
+      }
+          
+      //2
+      let downloader = ImageDownloader(photoRecord)
+      
+      //3
+      downloader.completionBlock = {
+        if downloader.isCancelled {
+          return
+        }
+
+        DispatchQueue.main.async {
+          self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+          self.collectionView.reloadItems(at: [indexPath])
+        }
+      }
+      
+      //4
+      pendingOperations.downloadsInProgress[indexPath] = downloader
+      
+      //5
+      pendingOperations.downloadQueue.addOperation(downloader)
+    }
+    
+
     /// add images to tweets
     /// using cache to help to reduce request time
-    func setupImages()
+    func setupImages(at indexPath: IndexPath)
     {
         async {
                 let start = Date()
                 for data in self.data
                 {
+                    
                     let url = data.getUserImageLink()
                     if let image = self.imageCache.object(forKey: url as NSString) as? UIImage {
                         data.setImage(image: image)
@@ -71,14 +122,39 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
                         self.imageCache.setObject(image, forKey: url as NSString)
                         data.setImage(image: image)
                     }
-                    
+                     DispatchQueue.main.async {
+                        self.collectionView.reloadItems(at:[indexPath])
+                    }
                 }
-                 DispatchQueue.main.async {
-                 self.collectionView.reloadData()
-                let finish = Date()
-                print("Time lapsed \(finish.timeIntervalSince(start))")
-            }
+//                 DispatchQueue.main.async {
+//                 self.collectionView.reloadData()
+//                let finish = Date()
+//                print("Time lapsed \(finish.timeIntervalSince(start))")
+//            }
              
+        }
+    }
+    
+    func setupImage(data:TweetModel)
+    {
+        async{
+                    let start = Date()
+                    let url = data.getUserImageLink()
+                    if let image = self.imageCache.object(forKey: url as NSString) {
+                        data.setImage(image: image)
+                    }
+                    else
+                    {
+                        let image = try! await(self.managerData.getUserProfilePhotoWithUrl(user_url: url))
+                        self.imageCache.setObject(image, forKey: url as NSString)
+                        data.setImage(image: image)
+                    }
+                
+                    DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    let finish = Date()
+                    print("Time lapsed \(finish.timeIntervalSince(start))")
+            }
         }
     }
     
@@ -165,8 +241,22 @@ class MainViewController: UICollectionViewController , UICollectionViewDelegateF
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TweetCell.reuseIdentifier, for: indexPath) as! TweetCell
-        cell.tweetModel = self.data[indexPath.item]
-        cell.setupImage()
+        let tweetModel = self.data[indexPath.item]
+        if !collectionView.isDragging && !collectionView.isDecelerating
+        {
+            let photoDetails = photos[indexPath.item]
+            switch (photoDetails.state) {
+             case .failed:
+               print("Failed to load \(indexPath.item) ")
+             case .new:
+               print("new Photo")
+               startOperations(for: photoDetails, at: indexPath)
+            case .filtered,.downloaded:
+                print("Setting Image")
+                tweetModel.image = photoDetails.image
+            }
+        }
+        cell.tweetModel = tweetModel
         return cell
     }
     
