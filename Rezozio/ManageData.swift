@@ -22,10 +22,9 @@ class ManageData {
     
     init()
     {
-
         self.db = Firestore.firestore()
         self.storage = Storage.storage()
-        self.uid = Auth.auth().currentUser!.uid
+        self.uid = Auth.auth().currentUser?.uid ?? ""
     }
     
     
