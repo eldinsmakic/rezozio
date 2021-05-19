@@ -15,12 +15,7 @@ import UIKit
 
 class UserCell : UICollectionViewCell
 {
-    private var userLabel : UILabel!
-    private var userIdentLabel : UILabel!
-    private var profileImageView: UIImageView!
-    private var userBioTextView : UITextView!
-    var followButton : UIButton!
-    
+
     var userModel: UserModel? {
         didSet {
             showLandmark()
@@ -29,29 +24,89 @@ class UserCell : UICollectionViewCell
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        //INIT ELEMENTS
-        userLabel = UILabel()
+
+        contentView.addSubview(profileImageView)
+        contentView.addSubview(userLabel)
+        contentView.addSubview(userIdentLabel)
+        contentView.addSubview(userBioTextView)
+        contentView.addSubview(followButton)
+
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12),
+            profileImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
+            profileImageView.widthAnchor.constraint(equalToConstant: 50),
+            profileImageView.heightAnchor.constraint(equalToConstant: 50 ),
+
+            followButton.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12),
+            followButton.rightAnchor.constraint(equalTo: contentView.rightAnchor , constant: -12),
+            followButton.widthAnchor.constraint(equalToConstant: 120),
+            followButton.heightAnchor.constraint(equalToConstant: 40),
+
+            userLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor ),
+            userLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor, constant: -12),
+            userLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12),
+            userLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            userIdentLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor , constant: 5),
+            userIdentLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor , constant: -12),
+            userIdentLabel.leftAnchor.constraint(equalTo: userLabel.leftAnchor ),
+            userIdentLabel.heightAnchor.constraint(equalToConstant: 20),
+
+            userBioTextView.topAnchor.constraint(equalTo: userIdentLabel.bottomAnchor , constant: 10),
+            userBioTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            userBioTextView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12),
+            userBioTextView.heightAnchor.constraint(equalToConstant: 80)
+        ])
+    }
+
+    // MARK: - UI Components
+
+    private lazy var userLabel: UILabel = {
+        let userLabel = UILabel()
         userLabel.font = UIFont.boldSystemFont(ofSize: 16)
         userLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        userIdentLabel = UILabel()
+
+        return userLabel
+    }()
+
+    private lazy var userIdentLabel: UILabel = {
+        let userIdentLabel = UILabel()
         userIdentLabel.font = UIFont.boldSystemFont(ofSize: 14)
         userIdentLabel.textColor = .gray
         userIdentLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        userBioTextView = UITextView()
-        userBioTextView.font  = UIFont.boldSystemFont(ofSize: 15)
+
+        return userIdentLabel
+    }()
+
+    private lazy var userBioTextView: UITextView = {
+        let userBioTextView = UITextView()
+        userBioTextView.font = UIFont.boldSystemFont(ofSize: 15)
         userBioTextView.translatesAutoresizingMaskIntoConstraints = false
-        
-        profileImageView = UIImageView()
+
+        return userBioTextView
+    }()
+
+    private lazy var profileImageView: UIImageView = {
+        let profileImageView = UIImageView()
         profileImageView.layer.cornerRadius = 5
         profileImageView.layer.masksToBounds = true
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        followButton = UIButton()
+
+        return profileImageView
+    }()
+
+    lazy var followButton: UIButton = {
+        let followButton = UIButton()
         followButton.backgroundColor = .white
         followButton.layer.cornerRadius = 5
         followButton.layer.borderWidth = 1
@@ -60,47 +115,10 @@ class UserCell : UICollectionViewCell
         followButton.setTitleColor(UIColor(cgColor: CGColor(srgbRed: 0, green: 255, blue: 255, alpha: 1)), for: .normal )
         followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         followButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        //ADD them to the view
-        contentView.addSubview(profileImageView)
-        contentView.addSubview(userLabel)
-        contentView.addSubview(userIdentLabel)
-        contentView.addSubview(userBioTextView)
-        contentView.addSubview(followButton)
-        
-        
-        //SETUP constraint
-        userLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor ).isActive = true
-        userLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor, constant: -12).isActive = true
-        userLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
-        userLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        userIdentLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor , constant: 5).isActive = true
-        userIdentLabel.rightAnchor.constraint(equalTo: followButton.leftAnchor , constant: -12).isActive = true
-        userIdentLabel.leftAnchor.constraint(equalTo: userLabel.leftAnchor ).isActive = true
-        userIdentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-        userBioTextView.topAnchor.constraint(equalTo: userIdentLabel.bottomAnchor , constant: 10).isActive = true
-        userBioTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12).isActive = true
-        userBioTextView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
-        userBioTextView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 50 ).isActive = true
-        
-        followButton.topAnchor.constraint(equalTo: contentView.topAnchor , constant: 12).isActive = true
-        followButton.rightAnchor.constraint(equalTo: contentView.rightAnchor , constant: -12).isActive = true
-        followButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        followButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+        return followButton
+    }()
+
     private func setupButtonToUnfollow()
     {
         followButton.backgroundColor = .cyan
